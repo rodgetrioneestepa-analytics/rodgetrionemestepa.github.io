@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Rodge Trione Estepa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dotmark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>Rodge Trione Estepa</div>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="index.html#contact">Contact</a>
+    <a class="linkedin-badge" href="https://www.linkedin.com/in/rodge-trione-estepa-426a83385" target="_blank" rel="noopener" aria-label="Rodge's LinkedIn profile">in</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-header">
+    <p class="eyebrow">Work</p>
+    <h1>Projects &amp; <em>experience</em>.</h1>
+  </div>
+
+  <section>
+    <div class="tab-nav" role="tablist" aria-label="Project categories">
+      <button class="tab-btn" role="tab" aria-selected="true" data-tab-target="new-projects" id="tab-new-projects">New projects</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab-target="certificates" id="tab-certificates">Certificates</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab-target="certifications" id="tab-certifications">Certifications</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab-target="internships" id="tab-internships">Internships</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab-target="case-studies" id="tab-case-studies">Case studies</button>
+      <button class="tab-btn" role="tab" aria-selected="false" tabindex="-1" data-tab-target="competitions" id="tab-competitions">Competitions</button>
+    </div>
+
+    <div class="tab-panel is-active" id="new-projects" role="tabpanel" aria-labelledby="tab-new-projects">
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Restaurant Sales Dashboard</h3>
+          <p>Built an interactive Excel and Power BI dashboard to track daily sales, spot slow periods, and flag underperforming menu items.</p>
+          <div class="tags"><span>Excel</span><span>Power BI</span><span>DAX</span></div>
+        </article>
+        <article class="project-card">
+          <h3>Inventory Management System</h3>
+          <p>Designed and built an application to track stock levels, automate reorder alerts, and reduce manual counting errors.</p>
+          <div class="tags"><span>Python</span><span>SQL</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="certificates" role="tabpanel" aria-labelledby="tab-certificates">
+      <div class="empty-state">
+        <p class="eyebrow">Certificates</p>
+        <p>Nothing added yet — course and workshop certificates will show up here.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="certifications" role="tabpanel" aria-labelledby="tab-certifications">
+      <div class="empty-state">
+        <p class="eyebrow">Certifications</p>
+        <p>Nothing added yet — see the dedicated <a href="certifications.html" class="squiggle">Certifications page</a> for the full list once it's up.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="internships" role="tabpanel" aria-labelledby="tab-internships">
+      <div class="empty-state">
+        <p class="eyebrow">Internships</p>
+        <p>Nothing added yet — internship experience will be listed here.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="case-studies" role="tabpanel" aria-labelledby="tab-case-studies">
+      <div class="empty-state">
+        <p class="eyebrow">Case studies</p>
+        <p>Nothing added yet — deeper written breakdowns of projects will live here.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="competitions" role="tabpanel" aria-labelledby="tab-competitions">
+      <div class="empty-state">
+        <p class="eyebrow">Competitions</p>
+        <p>Nothing added yet — hackathons and case competitions will show up here.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Rodge Trione Estepa</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
