@@ -15,7 +15,13 @@ The background was removed with built-in ImageGen, followed by mechanical resizi
 effects.js progressively adds Intersection Observer reveals: short fades, 18px upward movement, and stagger delays capped at 180ms. A single passive scroll listener schedules one animation frame for navigation shadow, a thin four-color reading-progress indicator, and desktop-only decorative parallax capped at 24px. Content remains available if the observer API is unavailable, during keyboard focus and hash navigation, and with reduced motion enabled.
 
 ## Editing
-Use projects.js to maintain project content; main.js manages existing interactions, effects.js manages optional motion, and styles.css defines the shared theme. No runtime dependencies, package installation, backend, database, or API changes were introduced.
+Use projects.js to maintain project content and certificates.js for the separate certificate/training records. main.js manages existing interactions, effects.js manages optional motion, and styles.css defines the shared theme. No runtime dependencies, package installation, backend, database, or API changes were introduced.
+
+## Certifications & Trainings gallery
+
+Projects > Certificates now presents four supplied learning records through the centralized `window.CERTIFICATES` array in certificates.js. The other project categories retain their existing data and behavior. Four unchanged originals and four uncropped 640px-wide WebP thumbnails live in assets/certificates/; its README records hashes and sizes. Month-only participation dates remain month-only, and the Simplilearn disclaimer distinguishes course completion from an official Microsoft certification. Competition participation is not presented as an award.
+
+certificate-gallery.js and certificate-gallery.css provide date sorting, counted category filters, consistent cards, and three/two/one-column responsive layouts. A reusable native dialog displays each full-aspect original with Fit, zoom, scrollable panning, and an original-file download. Close, Escape, and backdrop dismissal restore focus to the initiating View button. Keyboard controls, visible focus, descriptive image text, live result counts, loading/error states, direct-file fallbacks, reduced motion, and both themes are supported. New records and filter counts follow the data automatically; no fictional verification links are supplied. Existing theme-toggle, profile, duck, sky, and contact interactions are preserved.
 
 ## Verification
 JavaScript syntax, local link/image references, generated image alpha, browser interactions, and desktop/mobile layouts are checked during implementation. This buildless repository has no build command, package manifest, lint configuration, or automated test suite.

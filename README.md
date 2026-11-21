@@ -5,7 +5,9 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 ## Files
 - `index.html`, `about.html`, `projects.html`: the three pages
 - `styles.css`: all styling (colors and fonts are variables at the top)
-- `projects.js`: **all project and category data. This is the file you edit.**
+- `projects.js`: project data for the existing project categories
+- `certificates.js`: **certificate and training records; edit this file to add learning records**
+- `certificate-gallery.js`, `certificate-gallery.css`: certificate cards, filters, and the accessible image viewer
 - `main.js`: navigation, tabs, expandable overviews
 - `duck.js`, `duck.css`: mascot audio and the QUACK! interaction
 - `contact-solar.css`: responsive social-logo orbits around the contact message
@@ -18,12 +20,22 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 
 ## Add a new project
 1. Open `projects.js` and copy one of the objects in `window.PROJECTS`.
-2. Give it a unique `id`, a `category` (`new-projects`, `certificates`, `certifications`, `internships`, `case-studies` or `competitions`), a `title`, `summary`, `tools` list, and `overview` paragraphs.
+2. Give it a unique `id`, a `category` (`new-projects`, `certifications`, `internships`, `case-studies` or `competitions`), a `title`, `summary`, `tools` list, and `overview` paragraphs. Certificate and training records use the separate instructions below.
 3. Use a real screenshot: put it in an `assets/` folder and add `image:'assets/my-shot.png'` and `imageAlt:'What the screenshot shows'`. Remove `preview` and `concept`.
 4. Add `link:'https://...'` only when a real link exists. Set `featured:true` to also show it on Home.
 5. Only add what is true. Empty categories show an honest "nothing yet" message automatically.
 
 Deep links work: `projects.html#restaurant-sales` opens that project; `projects.html#internships` opens that tab.
+
+## Certifications & Trainings
+
+Open **Projects > Certificates** or `projects.html#certificates`. The gallery contains four supplied records: Business Analytics with Excel, Data Science & Analytics, ASEAN DSE Enablement Session 2026, and ASEAN DSE Competition 2026. Original images are unchanged in `assets/certificates/`; each has a proportional 640px-wide WebP thumbnail. The asset README records original hashes and thumbnail sizes.
+
+To add a record, copy an object in `window.CERTIFICATES` in `certificates.js`, not `projects.js`. Use a unique `id`, `title`, `issuer`, `date`, `dateLabel`, `category`, `typeLabel`, `description`, `image`, `thumbnail`, `imageAlt`, and the original image's `width` and `height`. Categories are `course-completions`, `trainings`, or `competitions`. Leave `verificationUrl` empty unless a genuine HTTPS verification link exists; use `note` when clarification is needed. Put the original and a readable, uncropped thumbnail in `assets/certificates/`.
+
+Dates sort newest first. Keep the supplied precision: `2026-11-01` for a known day, `2026-07` or `2026-11` for a known month. Do not invent missing days. Keep the Simplilearn note that its course completion is not an official Microsoft certification; participation records do not imply an award or professional certification.
+
+Filters, totals, and cards update from the data automatically. Clicking a card or its keyboard-accessible **View Certificate** button opens the original in a modal with Fit, zoom, scrolling, and **Download original**. Close, Escape, or a backdrop click dismisses it and restores focus. Visible focus, descriptive image text, reduced-motion support, light/dark styling, and direct original-file fallbacks are included. The layout uses three, two, or one card per row across desktop, tablet, and mobile.
 
 ## Change contact details
 Edit the logo links in the Contact section of `index.html`. The Gmail logo opens a compose window; LinkedIn and GitHub open the existing profiles. Account details are not printed in the contact section. WhatsApp is intentionally omitted for privacy.
@@ -34,6 +46,9 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] At 360px wide: Menu button opens and closes the nav (also with Esc)
 - [ ] Projects tabs: click, then Left/Right/Home/End keys; each category opens
 - [ ] Empty categories show the empty message; "Show overview" expands each card
+- [ ] Certificates: All/Course Completions/Trainings/Competitions show 4/2/1/1 records in date order
+- [ ] Each certificate opens uncropped; Fit, zoom, scrolling, original download, and Close/Escape/backdrop dismissal work
+- [ ] Certificate keyboard focus returns to its View button; test both themes and three/two/one-column layouts
 - [ ] Gmail logo opens compose with the address filled in
 - [ ] LinkedIn and GitHub links open the right profiles
 - [ ] Tab through every page with the keyboard; focus is always visible

@@ -40,6 +40,7 @@ ${full?`<button class="more" type="button" aria-expanded="false" aria-controls="
 </div></article>`;
 
 const P=window.PROJECTS||[],C=window.CATEGORIES||[];
+const certificates=Array.isArray(window.CERTIFICATES)?window.CERTIFICATES:[];
 const feat=$('#featured');
 if(feat)feat.innerHTML=P.filter(p=>p.featured).map(p=>card(p)).join('')||'<p class="muted">Featured projects will appear here.</p>';
 
@@ -50,8 +51,10 @@ document.addEventListener('click',e=>{const b=e.target.closest('button.more');if
 /* Projects page: tabs */
 const tabs=$('#tabs'),panels=$('#panels');
 if(tabs){
-  tabs.innerHTML=C.map(([id,n])=>`<button type="button" role="tab" id="t-${id}" aria-controls="p-${id}" aria-selected="false" tabindex="-1">${esc(n)} <span class="n">${P.filter(p=>p.category===id).length}</span></button>`).join('');
-  panels.innerHTML=C.map(([id,n])=>{const l=P.filter(p=>p.category===id);
+  tabs.innerHTML=C.map(([id,n])=>`<button type="button" role="tab" id="t-${id}" aria-controls="p-${id}" aria-selected="false" tabindex="-1">${esc(n)} <span class="n">${id==='certificates'?certificates.length:P.filter(p=>p.category===id).length}</span></button>`).join('');
+  panels.innerHTML=C.map(([id,n])=>{
+    if(id==='certificates')return `<div role="tabpanel" id="p-certificates" aria-labelledby="t-certificates" tabindex="0" hidden><section class="certificate-gallery" id="certifications-trainings" aria-labelledby="certifications-title"><h2 id="certifications-title">Certifications &amp; Trainings</h2><p>A collection of my learning experiences, completed courses, and professional development activities.</p><ul class="cert-fallback">${certificates.map(c=>`<li><a href="${esc(c.image)}" target="_blank" rel="noopener">${esc(c.title)}</a></li>`).join('')}</ul></section></div>`;
+    const l=P.filter(p=>p.category===id);
     return `<div role="tabpanel" id="p-${id}" aria-labelledby="t-${id}" tabindex="0" hidden>${l.length?`<div class="grid">${l.map(p=>card(p,1)).join('')}</div>`:`<div class="empty"><h3>No ${n.toLowerCase()} yet</h3><p>Nothing has been added to this category yet. Take a look at New projects, or check back later.</p></div>`}</div>`}).join('');
   const T=$$('[role=tab]',tabs);
   const pick=(id,focus,updateHash=false)=>{T.forEach(t=>{const on=t.id==='t-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;if(on&&focus)t.focus()});if(updateHash)history.replaceState(null,'','#'+id)};
