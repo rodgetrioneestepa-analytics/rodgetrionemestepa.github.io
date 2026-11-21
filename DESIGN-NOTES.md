@@ -19,3 +19,6 @@ Use projects.js to maintain project content; main.js manages existing interactio
 
 ## Verification
 JavaScript syntax, local link/image references, generated image alpha, browser interactions, and desktop/mobile layouts are checked during implementation. This buildless repository has no build command, package manifest, lint configuration, or automated test suite.
+
+## Appearance update
+Tool explanations now use circular popups, and the old hover-instruction sentence has been removed. Shared navigation includes a light/dark switch across all pages. Continuously drifting four-color gradient layers, floating shapes, and a gentle wave form a live wallpaper; parent layers retain existing scroll parallax while inner layers animate independently. Mouse depth uses coalesced event-driven frames, not a continuous JavaScript loop. A footer pause control, visibility suspension, reduced-motion styles, mobile simplification, and a static no-script fallback limit unnecessary motion and work.

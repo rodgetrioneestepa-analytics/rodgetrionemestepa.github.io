@@ -8,22 +8,23 @@
 <meta name="theme-color" content="#F8FAFC">
 <link rel="icon" href="assets/duck-favicon.png" type="image/png"><link rel="apple-touch-icon" href="assets/duck-touch-icon.png">
 <link rel="canonical" href="https://rodgetrioneestepa-analytics.github.io/rodgetrionemestepa.github.io/about.html">
-<script>document.documentElement.classList.add('js')</script>
+<script>(()=>{const r=document.documentElement;r.classList.add('js');let t,m;try{t=localStorage.getItem('portfolio-theme');m=localStorage.getItem('portfolio-wallpaper')}catch{}const dark=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;const reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.dataset.theme=t==='dark'||t==='light'?t:dark?'dark':'light';r.dataset.wallpaper=m==='paused'||reduced?'paused':'animated';})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=logo-photos-20261121">
+<link rel="stylesheet" href="appearance.css?v=live-theme-20261121">
 </head>
 <body class="page-about">
-<div class="page-decor" aria-hidden="true"><span class="decor-orb orb-blue"></span><span class="decor-orb orb-red"></span><span class="decor-orb orb-yellow"></span><span class="decor-orb orb-green"></span><svg class="decor-wave" viewBox="0 0 1440 500" preserveAspectRatio="none"><path d="M0 300C250 70 420 490 730 250S1200 110 1440 250" fill="none" stroke="#4285F4" stroke-opacity=".08" stroke-width="60"/><path d="M0 400C250 170 420 590 730 350S1200 210 1440 350" fill="none" stroke="#34A853" stroke-opacity=".07" stroke-width="20"/></svg></div><div class="scroll-progress" aria-hidden="true"></div>
+<div class="page-decor" aria-hidden="true"><span class="decor-orb orb-blue"></span><span class="decor-orb orb-red"></span><span class="decor-orb orb-yellow"></span><span class="decor-orb orb-green"></span><svg class="decor-wave" viewBox="0 0 1440 500" preserveAspectRatio="none"><path d="M0 300C250 70 420 490 730 250S1200 110 1440 250" fill="none" stroke="#4285F4" stroke-opacity=".08" stroke-width="60"/><path d="M0 400C250 170 420 590 730 350S1200 210 1440 350" fill="none" stroke="#34A853" stroke-opacity=".07" stroke-width="20"/></svg><span class="wallpaper-shape shape-ring"></span><span class="wallpaper-shape shape-square"></span><span class="wallpaper-shape shape-ring-small"></span></div><div class="scroll-progress" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap bar">
 <a class="brand" href="index.html" aria-label="Rodge Trione Estepa, home"><span class="brand-mascot"><img src="assets/duck-mascot.webp" width="64" height="64" alt="" decoding="async"></span><span class="brand-copy"><strong>Rodge<span>.</span></strong><small>Analytics &amp; curiosity</small></span></a>
-<button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav id="nav" aria-label="Main">
+
+<div class="header-actions"><nav id="nav" aria-label="Main">
 <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a>
 <a class="btn small" href="index.html#contact">Let&rsquo;s connect</a>
-</nav></div></header>
+</nav><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 14.3A8.8 8.8 0 0 1 9.7 4a8.8 8.8 0 1 0 10.3 10.3Z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span class="theme-toggle-label">Dark mode</span></button><button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button></div></div></header>
 <main id="main">
 <section><div class="wrap about-intro"><div class="about-intro-copy">
 <p class="hi">About</p>
@@ -51,9 +52,10 @@
 <div class="row" style="margin-top:2rem"><a class="btn" href="projects.html">See my projects</a><a class="btn ghost" href="index.html#contact">Get in touch</a></div>
 </div></section>
 </main>
-<footer><div class="wrap"><span class="footer-signature"><img src="assets/duck-mascot.webp" width="40" height="40" alt="" loading="lazy">Rodge Trione Estepa &copy; 2026</span><a href="#main">Back to top</a></div></footer>
+<footer><div class="wrap"><span class="footer-signature"><img src="assets/duck-mascot.webp" width="40" height="40" alt="" loading="lazy">Rodge Trione Estepa &copy; 2026</span><div class="footer-controls"><button class="wallpaper-toggle" type="button" aria-pressed="false"><svg class="motion-icon-pause" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="5" y="3" width="3" height="14" rx="1"/><rect x="12" y="3" width="3" height="14" rx="1"/></svg><svg class="motion-icon-play" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7Z"/></svg><span class="wallpaper-toggle-label">Pause background</span></button><a href="#main">Back to top</a></div></div></footer>
 <script src="projects.js?v=material-duck-20261121"></script>
 <script src="main.js?v=material-duck-20261121"></script>
 <script src="effects.js?v=material-duck-20261121"></script>
+<script src="appearance.js?v=live-theme-20261121"></script>
 </body>
 </html>

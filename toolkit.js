@@ -1,4 +1,4 @@
-/* Accessible tool clouds: hover to explore, click/tap to keep one open. */
+/* Accessible tool orbits: hover to explore, click/tap to keep one open. */
 (() => {
   'use strict';
 
@@ -7,8 +7,8 @@
 
   const entries = [...grid.querySelectorAll('.toolkit-item')].map((item) => {
     const button = item.querySelector('.toolkit-card');
-    const cloud = item.querySelector('.tool-cloud');
-    return button && cloud ? { item, button, cloud } : null;
+    const orbit = item.querySelector('.tool-orbit');
+    return button && orbit ? { item, button, orbit } : null;
   }).filter(Boolean);
   if (!entries.length) return;
 
@@ -19,18 +19,24 @@
   let watchingPosition = false;
 
   const cancelClose = () => window.clearTimeout(closeTimer);
-  const positionCloud = (entry) => {
+  const positionOrbit = (entry) => {
     const card = entry.button.getBoundingClientRect();
     const header = document.querySelector('.top');
     const headerBottom = header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
-    const height = entry.cloud.offsetHeight || 180;
-    entry.item.classList.toggle('cloud-below', card.top - height - 18 < headerBottom + 8);
+    const height = entry.orbit.offsetHeight || 180;
+    const below = card.top - height - 18 < headerBottom + 12;
+    entry.item.classList.toggle('orbit-below', below);
+    const expectedTop = below ? card.bottom + 20 : card.top - height - 17;
+    const minimum = headerBottom + 12;
+    const maximum = Math.max(minimum, window.innerHeight - height - 12);
+    const actualTop = Math.max(minimum, Math.min(expectedTop, maximum));
+    entry.orbit.style.setProperty('--orbit-adjust-y', (actualTop - expectedTop) + 'px');
   };
   const requestPosition = () => {
     if (!active || positionFrame !== null) return;
     positionFrame = window.requestAnimationFrame(() => {
       positionFrame = null;
-      if (active) positionCloud(active);
+      if (active) positionOrbit(active);
     });
   };
   const watchPosition = (watch) => {
@@ -47,7 +53,7 @@
   const setExpanded = (entry, open) => {
     entry.item.classList.toggle('is-open', open);
     entry.button.setAttribute('aria-expanded', String(open));
-    entry.cloud.setAttribute('aria-hidden', String(!open));
+    entry.orbit.setAttribute('aria-hidden', String(!open));
   };
   const close = () => {
     cancelClose();
@@ -63,7 +69,7 @@
       active = entry;
       pinned = false;
     }
-    positionCloud(entry);
+    positionOrbit(entry);
     setExpanded(entry, true);
     watchPosition(true);
   };
@@ -81,7 +87,7 @@
     entry.item.addEventListener('pointerleave', (event) => {
       if (event.pointerType === 'touch') return;
       cancelClose();
-      // The small gap between a card and its cloud remains easy to cross.
+      // The small gap between a card and its orbit remains easy to cross.
       closeTimer = window.setTimeout(() => {
         if (active === entry && !pinned && !hasKeyboardFocus(entry)) close();
       }, 120);
@@ -92,7 +98,7 @@
     });
     entry.button.addEventListener('click', () => {
       cancelClose();
-      // A first mouse click pins a cloud that was already opened by hover.
+      // A first mouse click pins a orbit that was already opened by hover.
       // Native button activation gives touch, Enter, and Space the same behavior.
       if (active === entry && pinned) {
         close();
