@@ -1,27 +1,41 @@
-# Rodge Trione Estepa — Business Analytics Portfolio
+# Rodge Trione Estepa: e-portfolio
 
-A responsive, static e-portfolio built with HTML, CSS, and JavaScript. Hosted on GitHub Pages.
+Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is.
 
-## Pages
+## Files
+- `index.html`, `about.html`, `projects.html`: the three pages
+- `styles.css`: all styling (colors and fonts are variables at the top)
+- `projects.js`: **all project and category data. This is the file you edit.**
+- `main.js`: navigation, tabs, expandable overviews, copy-email button
 
-- `index.html`: introduction, selected projects, about preview, and contact links.
-- `about.html`: background, toolkit, and approach.
-- `projects.html`: six portfolio categories and expandable project overviews.
-- `style.css`: shared responsive theme.
-- `script.js`: mobile navigation, accessible category tabs, project deep links, and email copying.
-- `assets/`: original SVG illustrations and favicon. Project previews are concept illustrations, not screenshots of the actual projects.
+## Publish
+1. Copy these files into the root of your GitHub Pages repository (replacing the old ones) and commit.
+2. In the repository, open Settings > Pages and confirm it deploys from your main branch.
 
-## Preview locally
+## Add a new project
+1. Open `projects.js` and copy one of the objects in `window.PROJECTS`.
+2. Give it a unique `id`, a `category` (`new-projects`, `certificates`, `certifications`, `internships`, `case-studies` or `competitions`), a `title`, `summary`, `tools` list, and `overview` paragraphs.
+3. Use a real screenshot: put it in an `assets/` folder and add `image:'assets/my-shot.png'` and `imageAlt:'What the screenshot shows'`. Remove `preview` and `concept`.
+4. Add `link:'https://...'` only when a real link exists. Set `featured:true` to also show it on Home.
+5. Only add what is true. Empty categories show an honest "nothing yet" message automatically.
 
-Serve this directory with any static web server, for example `python -m http.server 8000`, and visit `http://localhost:8000`.
+Deep links work: `projects.html#restaurant-sales` opens that project; `projects.html#internships` opens that tab.
 
-## Add a project
+## Change contact details
+Edit the links in the Contact section of `index.html` and the `EMAIL` constant in `main.js`.
 
-1. Put screenshots or downloadable files in `assets/projects/`. Avoid publishing confidential data.
-2. In `projects.html`, copy an existing `article.project-card` inside the appropriate category's panel.
-3. Give the card a unique ID. Update its title, description, tools, image and alt text, and project overview.
-4. Add a real repository, report, or demo link when available. Replace a concept illustration with an actual screenshot and update its caption.
-5. Update the New projects count when adding to that category. Update the selected cards on `index.html` if desired.
-6. Commit to `main`. GitHub Pages deploys automatically.
+## Test before publishing
+Open the site locally (for example `python3 -m http.server`) and check:
+- [ ] Home, About, Projects all load; the active nav link is highlighted
+- [ ] At 360px wide: Menu button opens and closes the nav (also with Esc)
+- [ ] Projects tabs: click, then Left/Right/Home/End keys; each category opens
+- [ ] Empty categories show the empty message; "Show overview" expands each card
+- [ ] Email link opens Gmail compose with the address filled in; Copy email shows "Copied"
+- [ ] LinkedIn and GitHub links open the right profiles
+- [ ] Tab through every page with the keyboard; focus is always visible
+- [ ] With "reduce motion" enabled in your OS, the hero graphic does not animate
 
-Tabs support Left/Right, Home/End, Enter, and Space. Native project disclosures work without JavaScript; category panels are all shown when scripting is disabled.
+## Profile photo
+Your supplied photograph is saved at `assets/rodge-trione-estepa.jpg` and appears on Home and About. The original image is retained; CSS controls its display crop. Replace that image to update both pages.
+
+Project deep links preserve their original IDs. Basic project descriptions remain visible when JavaScript is disabled.
