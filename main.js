@@ -50,7 +50,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button.more');if
 /* Projects page: tabs */
 const tabs=$('#tabs'),panels=$('#panels');
 if(tabs){
-  tabs.innerHTML=C.map(([id,n])=>`<button type="button" role="tab" id="t-${id}" aria-controls="p-${id}" aria-selected="false" tabindex="-1">${n}<span class="n">${P.filter(p=>p.category===id).length}</span></button>`).join('');
+  tabs.innerHTML=C.map(([id,n])=>`<button type="button" role="tab" id="t-${id}" aria-controls="p-${id}" aria-selected="false" tabindex="-1">${esc(n)} <span class="n">${P.filter(p=>p.category===id).length}</span></button>`).join('');
   panels.innerHTML=C.map(([id,n])=>{const l=P.filter(p=>p.category===id);
     return `<div role="tabpanel" id="p-${id}" aria-labelledby="t-${id}" tabindex="0" hidden>${l.length?`<div class="grid">${l.map(p=>card(p,1)).join('')}</div>`:`<div class="empty"><h3>No ${n.toLowerCase()} yet</h3><p>Nothing has been added to this category yet. Take a look at New projects, or check back later.</p></div>`}</div>`}).join('');
   const T=$$('[role=tab]',tabs);

@@ -39,3 +39,8 @@ Open the site locally (for example `python3 -m http.server`) and check:
 Your supplied photograph is saved at `assets/rodge-trione-estepa.jpg` and appears on Home and About. The original image is retained; CSS controls its display crop. Replace that image to update both pages.
 
 Project deep links preserve their original IDs. Basic project descriptions remain visible when JavaScript is disabled.
+
+## Light theme and duck mascot
+The Material-inspired four-color theme is in styles.css. effects.js provides optional observer reveals, restrained desktop parallax, sticky navigation effects, and reading progress; it respects reduced motion and keyboard focus.
+
+Duck assets: assets/duck-mascot.png (transparent 512px master), assets/duck-mascot.webp (optimized 320px navigation/footer image), assets/duck-favicon.png, and assets/duck-touch-icon.png. The existing profile photograph remains unchanged. See DESIGN-NOTES.md and assets/duck-logo-prompt.txt for implementation and asset details.

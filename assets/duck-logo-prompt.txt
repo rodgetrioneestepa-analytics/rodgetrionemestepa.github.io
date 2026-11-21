@@ -1,0 +1,6 @@
+Built-in ImageGen edit; transparent_background=true.
+Edit target: IMG_2560.JPG supplied by the website owner.
+
+Use case: background-extraction. Edit target: the supplied photograph IMG_2560.JPG. Extract ONLY the exact duck wearing white oval sunglasses, including its cream/yellow head, open orange-pink beak, feathered neck and small turquoise garment visible at the bottom. Completely remove the room, fan on left, blanket on right, wall, all background. Preserve the original duck's identity, colors, photographic texture, details, proportions, pose, open mouth, and sunglasses unchanged. This is precise background removal, not a redraw or stylization. Clean smooth natural feather silhouette with no background fringe, no added body parts. Export as a tightly framed square transparent PNG, duck centered with small transparent padding, for website logo use. Real alpha transparency, no fake checkerboard, no white/solid background, no text, no shadows added.
+
+Website derivatives: 512px transparent PNG, 320px alpha WebP, 64px favicon PNG, 180px touch-icon PNG. Mechanical resizing/encoding preserves transparency; original generated output retained separately.
