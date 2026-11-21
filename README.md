@@ -6,7 +6,9 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 - `index.html`, `about.html`, `projects.html`: the three pages
 - `styles.css`: all styling (colors and fonts are variables at the top)
 - `projects.js`: **all project and category data. This is the file you edit.**
-- `main.js`: navigation, tabs, expandable overviews, copy-email button
+- `main.js`: navigation, tabs, expandable overviews
+- `duck.js`, `duck.css`: mascot audio and the QUACK! interaction
+- `contact-solar.css`: responsive social-logo orbits around the contact message
 
 ## Publish
 1. Copy these files into the root of your GitHub Pages repository (replacing the old ones) and commit.
@@ -22,7 +24,7 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 Deep links work: `projects.html#restaurant-sales` opens that project; `projects.html#internships` opens that tab.
 
 ## Change contact details
-Edit the links in the Contact section of `index.html` and the `EMAIL` constant in `main.js`.
+Edit the logo links in the Contact section of `index.html`. The Gmail logo opens a compose window; LinkedIn and GitHub open the existing profiles. Account details are not printed in the contact section. WhatsApp is intentionally omitted for privacy.
 
 ## Test before publishing
 Open the site locally (for example `python3 -m http.server`) and check:
@@ -30,10 +32,12 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] At 360px wide: Menu button opens and closes the nav (also with Esc)
 - [ ] Projects tabs: click, then Left/Right/Home/End keys; each category opens
 - [ ] Empty categories show the empty message; "Show overview" expands each card
-- [ ] Email link opens Gmail compose with the address filled in; Copy email shows "Copied"
+- [ ] Gmail logo opens compose with the address filled in
 - [ ] LinkedIn and GitHub links open the right profiles
 - [ ] Tab through every page with the keyboard; focus is always visible
 - [ ] With "reduce motion" enabled in your OS, the hero graphic does not animate
+- [ ] Duck hover uses the first recording; click, Enter, or Space uses the second and shows QUACK!
+- [ ] The contact logos remain usable on a phone and stop orbiting during hover or keyboard focus
 
 ## Profile photo
 Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. These are the supplied photographs without image edits. CSS controls their display crop. Replace the relevant image to update that page. The previous photograph remains in the repository.
@@ -52,3 +56,8 @@ Home now lists Excel, Power BI, Python, SQL, Google Colab, and Looker. Edit the 
 The navigation theme button selects light or dark mode. A saved choice is restored before the page renders; first visits follow the device color scheme. The footer has a Pause background / Play background control. Preferences are stored locally in the browser, with graceful handling when storage is blocked.
 
 appearance.css provides full dark surfaces, the controls, and four-color CSS wallpaper. appearance.js manages preferences and subtle desktop-only mouse depth. The existing effects.js still manages scroll reveals and parallax. Drift and waves loop through transform/opacity animations; hidden pages pause, reduced-motion users receive a static background, and phones skip mouse tracking and use fewer effects. No animation libraries or backend changes are needed.
+
+## Duck sounds and contact orbits
+Header and footer mascots are buttons; the adjacent wordmark still links Home. The supplied recordings are stored in assets/audio/duck-hover.mp3 and assets/audio/duck-click.mp3. Hover audio can be blocked by browser autoplay rules until a visitor first interacts with the page. Clicking the duck initiates its sound directly and shows a brief QUACK! fade. Audio never loops, does not overlap, and stops when the page is hidden.
+
+The home contact message is centered inside decorative orbital rings with Gmail, LinkedIn, and GitHub logo links. The orbit motion pauses while visitors interact, follows the background pause setting, and respects reduced motion. No phone number or WhatsApp destination is configured.

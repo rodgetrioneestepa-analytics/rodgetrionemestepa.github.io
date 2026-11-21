@@ -1,0 +1,22 @@
+/* The mascot stays transparent; only an intentional click shows its callout. */
+.brand > .brand-copy { text-decoration:none; }
+.duck-trigger { position:relative; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; padding:0; border:0; background:transparent; color:inherit; overflow:visible; cursor:pointer; touch-action:manipulation; }
+.duck-trigger > img { display:block; object-fit:contain; pointer-events:none; }
+.duck-trigger:focus-visible { outline:3px solid var(--blue-ink,#174ea6); outline-offset:4px; border-radius:50%; }
+.brand:hover .duck-trigger > img { transform:none; }
+.brand .duck-trigger:hover > img { transform:rotate(-5deg) translateY(-1px); }
+.footer-duck { width:44px; height:44px; }
+.footer-duck > img { width:40px; height:40px; }
+.duck-trigger.is-quacking { z-index:2; }
+.duck-quack { position:absolute; left:50%; bottom:calc(100% + 6px); z-index:2; display:block; padding:6px 10px; border:1px solid #4285f455; border-radius:999px; background:var(--s,#fff); color:var(--blue-ink,#174ea6); box-shadow:0 4px 15px #27416a18; font:700 .8125rem/1.3 var(--h,system-ui,sans-serif); letter-spacing:.065em; white-space:nowrap; pointer-events:none; opacity:0; visibility:hidden; transform:translateX(-50%); }
+.top .duck-quack { top:calc(100% + 2px); bottom:auto; }
+.duck-trigger.is-quacking .duck-quack { visibility:visible; animation:duck-quack-pop 1.05s ease-out both; }
+.duck-trigger.is-quacking > img { animation:duck-nod .35s ease-out; }
+@keyframes duck-quack-pop { 0%{opacity:0;transform:translate(-50%,5px) scale(.95)}18%,65%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-7px) scale(.98)} }
+@keyframes duck-nod { 0%,100%{transform:none}45%{transform:rotate(-7deg) translateY(-2px)} }
+@media(prefers-reduced-motion:reduce) {
+  .brand .duck-trigger > img,.brand .duck-trigger:hover > img,.duck-trigger.is-quacking > img { transform:none!important; animation:none!important; transition:none!important; }
+  .duck-trigger.is-quacking .duck-quack { animation:duck-quack-fade 1.05s ease-out both; }
+}
+@keyframes duck-quack-fade { 0%,100%{opacity:0}18%,65%{opacity:1} }
+@media print { .duck-quack { display:none; } }
