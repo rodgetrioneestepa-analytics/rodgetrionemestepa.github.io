@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640" width="600" height="640" fill="none" focusable="false">
+  <defs>
+    <linearGradient id="helmet-metal" x1="101" y1="66" x2="518" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset=".24" stop-color="#D9E6F5"/><stop offset=".48" stop-color="#93A7C0"/><stop offset=".72" stop-color="#F3F7FF"/><stop offset="1" stop-color="#8C9FB9"/></linearGradient>
+    <linearGradient id="helmet-bevel" x1="145" y1="83" x2="467" y2="519" gradientUnits="userSpaceOnUse"><stop stop-color="#F9FCFF"/><stop offset=".31" stop-color="#8098BA"/><stop offset=".7" stop-color="#263B5B"/><stop offset="1" stop-color="#A6BDD9"/></linearGradient>
+    <linearGradient id="visor-rim" x1="78" y1="79" x2="514" y2="507" gradientUnits="userSpaceOnUse"><stop stop-color="#BFE6FF"/><stop offset=".34" stop-color="#5F9BF1"/><stop offset=".7" stop-color="#A5A0EB"/><stop offset="1" stop-color="#78BBEC"/></linearGradient>
+    <linearGradient id="helmet-pod" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DDE8F6"/><stop offset=".5" stop-color="#A4B7D0"/><stop offset="1" stop-color="#E9F0FA"/></linearGradient>
+    <linearGradient id="helmet-chin" x1="196" y1="533" x2="413" y2="611" gradientUnits="userSpaceOnUse"><stop stop-color="#E6EFFB"/><stop offset=".5" stop-color="#C0D0E5"/><stop offset="1" stop-color="#879FBD"/></linearGradient>
+  </defs>
+  <!-- All paint stays outside the clear circular visor, centered at (300,300), radius 226. -->
+  <circle cx="300" cy="300" r="270" stroke="#80AEF1" stroke-opacity=".13" stroke-width="17"/>
+  <rect x="9" y="220" width="67" height="158" rx="30" fill="url(#helmet-pod)" stroke="#718BAF" stroke-width="2"/>
+  <rect x="524" y="220" width="67" height="158" rx="30" fill="url(#helmet-pod)" stroke="#718BAF" stroke-width="2"/>
+  <rect x="20" y="248" width="22" height="101" rx="10" fill="#253C5C"/>
+  <rect x="558" y="248" width="22" height="101" rx="10" fill="#253C5C"/>
+  <path d="M29 268v61m542-61v61" stroke="#94C9FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M300 36a264 264 0 1 1 0 528 264 264 0 0 1 0-528Zm0 19a245 245 0 1 0 0 490 245 245 0 0 0 0-490Z" fill="url(#helmet-metal)" fill-rule="evenodd" stroke="#96ADC9" stroke-width="1.7"/>
+  <path d="M300 55a245 245 0 1 1 0 490 245 245 0 0 1 0-490Zm0 19a226 226 0 1 0 0 452 226 226 0 0 0 0-452Z" fill="url(#helmet-bevel)" fill-rule="evenodd"/>
+  <circle cx="300" cy="300" r="227" stroke="url(#visor-rim)" stroke-width="4"/>
+  <path d="M119 140A245 245 0 0 1 454 109" stroke="#FFFFFF" stroke-opacity=".86" stroke-width="5" stroke-linecap="round"/>
+  <path d="M89 181A245 245 0 0 1 107 153M485 449a245 245 0 0 1-64 60" stroke="#D1E6FF" stroke-opacity=".65" stroke-width="3" stroke-linecap="round"/>
+  <path d="M141 117a249 249 0 0 1 36-24M454 91a249 249 0 0 1 29 25" stroke="#536B8E" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+  <path d="M204 549c28 11 61 17 96 17 36 0 69-6 96-17l19 42c4 9-2 19-12 20-68 11-138 11-206 0-10-1-16-11-12-20Z" fill="url(#helmet-chin)" stroke="#7B94B5" stroke-width="2"/>
+  <rect x="234" y="574" width="132" height="26" rx="13" fill="#263C5B"/>
+  <path d="M247 587h31" stroke="#8DC6FF" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="300" cy="587" r="4" fill="#4285F4"/>
+  <circle cx="317" cy="587" r="4" fill="#EA4335"/>
+  <circle cx="334" cy="587" r="4" fill="#FBBC05"/>
+  <circle cx="351" cy="587" r="4" fill="#34A853"/>
+  <circle cx="58" cy="237" r="5" fill="#E8F3FF" stroke="#738CAA" stroke-width="1.5"/>
+  <circle cx="542" cy="237" r="5" fill="#E8F3FF" stroke="#738CAA" stroke-width="1.5"/>
+  <circle cx="58" cy="360" r="5" fill="#E8F3FF" stroke="#738CAA" stroke-width="1.5"/>
+  <circle cx="542" cy="360" r="5" fill="#E8F3FF" stroke="#738CAA" stroke-width="1.5"/>
+</svg>

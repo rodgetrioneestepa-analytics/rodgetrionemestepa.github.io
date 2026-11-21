@@ -10,6 +10,7 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 - `duck.js`, `duck.css`: mascot audio and the QUACK! interaction
 - `contact-solar.css`: responsive social-logo orbits around the contact message
 - `sky.js`, `sky.css`: daytime/nighttime scenery and the one-minute rocket schedule
+- `profile-themes.css`: reusable farmer/astronaut styling for Home and About photos
 
 ## Publish
 1. Copy these files into the root of your GitHub Pages repository (replacing the old ones) and commit.
@@ -45,7 +46,7 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] Pause background, reduced motion, hidden pages, and theme changes stop unnecessary scenery work
 
 ## Profile photo
-Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. These are the supplied photographs without image edits. CSS controls their display crop. Replace the relevant image to update that page. The previous photograph remains in the repository.
+Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. The image files are unchanged. The themed frames use `object-fit: contain` to show the full photographs without distortion or cropping. Replace the relevant image to update that page. The previous photograph remains in the repository.
 
 Project deep links preserve their original IDs. Basic project descriptions remain visible when JavaScript is disabled.
 
@@ -71,3 +72,8 @@ The home contact message is centered inside decorative orbital rings with Gmail,
 `sky.js` adds one decorative scene behind the existing content. Daytime uses soft sunlight, drifting CSS clouds, occasional small airplanes, and groups of birds. Nighttime uses a sparse, reproducible star field, softly lit planets, and a single reusable rocket. Its eight-second flight begins after about sixty seconds of active dark mode and repeats approximately once a minute. Light mode, reduced motion, background pause, and hidden pages do not keep a rocket timer running.
 
 `sky.css` fades the two scenes between themes and simplifies the scenery on phones. Motion uses transforms and opacity without animation libraries. The previous static decoration remains the fallback if the sky script cannot initialize. The yellow QUACK! callout and duck recordings remain available in both themes.
+
+## Farmer and astronaut profile frames
+Home and About share the `.themed-profile` component in `profile-themes.css`. The existing card dimensions, image-frame aspect ratios, captions, and original photo files are retained. Light mode adds a separate woven-straw hat along the upper frame edge and warm countryside accents. Dark mode crossfades to a metallic helmet with a transparent circular visor, subtle reflections, and a blue/purple rim glow.
+
+The full photo fits inside the visor with extra inset in dark mode rather than a circular crop. Both SVG decorations are separate assets: `assets/profile-straw-hat.svg` and `assets/profile-space-helmet.svg`. Their wrappers are hidden from assistive technology and ignore pointer input. The 450ms theme transitions and gentle decorative motion respect reduced motion and the existing background pause/visibility settings.

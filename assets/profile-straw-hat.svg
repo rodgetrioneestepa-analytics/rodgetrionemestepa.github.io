@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="600" height="220" fill="none" focusable="false">
+  <defs>
+    <linearGradient id="straw-crown" x1="205" y1="20" x2="395" y2="160" gradientUnits="userSpaceOnUse"><stop stop-color="#F6DB8D"/><stop offset=".48" stop-color="#E6C16D"/><stop offset="1" stop-color="#BF9445"/></linearGradient>
+    <linearGradient id="straw-brim" x1="291" y1="132" x2="306" y2="212" gradientUnits="userSpaceOnUse"><stop stop-color="#F8E3A4"/><stop offset=".54" stop-color="#E7C879"/><stop offset="1" stop-color="#BD9146"/></linearGradient>
+    <linearGradient id="hat-band" x1="180" y1="108" x2="430" y2="151" gradientUnits="userSpaceOnUse"><stop stop-color="#69754D"/><stop offset=".54" stop-color="#4C5E3D"/><stop offset="1" stop-color="#35472F"/></linearGradient>
+    <pattern id="straw-weave" width="16" height="12" patternUnits="userSpaceOnUse"><path d="M-4 10 12-2M4 14 20 2" stroke="#8E6B2C" stroke-opacity=".22" stroke-width="1.15"/><path d="M0 2 16 14M-8 2 8 14" stroke="#FFF1BE" stroke-opacity=".47" stroke-width="1"/></pattern>
+    <clipPath id="crown-clip"><path d="m160 153 21-87C190 27 231 18 296 18s111 9 123 45l28 89c-81 27-202 28-287 1Z"/></clipPath>
+  </defs>
+  <g transform="rotate(-4 300 145)">
+    <path d="M30 169c6-24 121-40 268-40s267 16 272 40c5 25-112 43-267 43S24 195 30 169Z" fill="#8E713F" fill-opacity=".12"/>
+    <path d="M26 165c8-23 125-39 271-39s267 17 276 40c9 24-111 43-273 43S18 190 26 165Z" fill="url(#straw-brim)" stroke="#AD8540" stroke-width="2.4"/>
+    <path d="M26 165c8-23 125-39 271-39s267 17 276 40c9 24-111 43-273 43S18 190 26 165Z" fill="url(#straw-weave)"/>
+    <ellipse cx="299" cy="168" rx="244" ry="26" stroke="#FFF0BA" stroke-opacity=".62" stroke-width="2"/>
+    <ellipse cx="299" cy="169" rx="221" ry="20" stroke="#B58D43" stroke-opacity=".32" stroke-width="1.3"/>
+    <path d="m160 153 21-87C190 27 231 18 296 18s111 9 123 45l28 89c-81 27-202 28-287 1Z" fill="url(#straw-crown)" stroke="#BA924C" stroke-width="2.2" stroke-linejoin="round"/>
+    <g clip-path="url(#crown-clip)">
+      <path d="M150 14h310v150H150Z" fill="url(#straw-weave)"/>
+      <path d="M206 46c43-24 131-27 179-2" stroke="#FFF2BF" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>
+      <path d="M196 70c49-15 137-18 204-1M188 87c68-12 145-12 218 0M180 105c81-10 156-8 234 2" stroke="#A67D35" stroke-opacity=".2" stroke-width="1.4"/>
+      <path d="M170 113c72 23 187 24 267-1l10 35c-77 28-205 28-287 2Z" fill="url(#hat-band)"/>
+      <path d="M171 115c75 24 185 25 267-1M163 147c85 26 205 24 282-1" stroke="#D3B36A" stroke-opacity=".75" stroke-width="2"/>
+      <path d="m221 25-12 86M374 24l21 89" stroke="#B18A45" stroke-opacity=".2" stroke-width="2"/>
+    </g>
+    <path d="M431 142c-1-12-3-23-8-34" stroke="#C8A85F" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M425 126c-16-1-24-11-22-24 15 2 24 10 22 24Z" fill="#788B55" stroke="#4E663E" stroke-width="1.2"/>
+    <path d="M429 137c14-3 21-11 19-23-14 3-21 11-19 23Z" fill="#9BAA68" stroke="#5B743F" stroke-width="1.2"/>
+    <path d="m409 108 15 16m20-4-13 13" stroke="#E8E1A3" stroke-opacity=".65" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M52 184c57 17 151 25 247 25 110 0 205-9 253-25" stroke="#AC823A" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
