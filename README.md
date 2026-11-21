@@ -9,6 +9,7 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 - `main.js`: navigation, tabs, expandable overviews
 - `duck.js`, `duck.css`: mascot audio and the QUACK! interaction
 - `contact-solar.css`: responsive social-logo orbits around the contact message
+- `sky.js`, `sky.css`: daytime/nighttime scenery and the one-minute rocket schedule
 
 ## Publish
 1. Copy these files into the root of your GitHub Pages repository (replacing the old ones) and commit.
@@ -37,7 +38,11 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] Tab through every page with the keyboard; focus is always visible
 - [ ] With "reduce motion" enabled in your OS, the hero graphic does not animate
 - [ ] Duck hover uses the first recording; click, Enter, or Space uses the second and shows QUACK!
-- [ ] The contact logos remain usable on a phone and stop orbiting during hover or keyboard focus
+- [ ] Each contact logo pauses in place on its own hover or keyboard focus; the other logos keep moving
+- [ ] The icon-only moon/sun button switches themes and restores the saved selection on all pages
+- [ ] Dark mode has stars and planets; a rocket crosses after roughly one active minute
+- [ ] Light mode has soft clouds, occasional planes, and bird silhouettes
+- [ ] Pause background, reduced motion, hidden pages, and theme changes stop unnecessary scenery work
 
 ## Profile photo
 Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. These are the supplied photographs without image edits. CSS controls their display crop. Replace the relevant image to update that page. The previous photograph remains in the repository.
@@ -53,11 +58,16 @@ Duck assets: assets/duck-mascot.png (transparent 512px master), assets/duck-masc
 Home now lists Excel, Power BI, Python, SQL, Google Colab, and Looker. Edit the tool descriptions and tags in the toolkit section of index.html. toolkit.css provides circular popup styling and reduced-motion rules; toolkit.js opens circular explanations on mouse hover, keyboard focus, or tap, and closes them with Escape or an outside click. Product SVG marks and attribution notices are in assets/tools/. SQL uses a generic database symbol. About-page skills are maintained separately.
 
 ## Light/dark appearance and live wallpaper
-The navigation theme button selects light or dark mode. A saved choice is restored before the page renders; first visits follow the device color scheme. The footer has a Pause background / Play background control. Preferences are stored locally in the browser, with graceful handling when storage is blocked.
+The navigation moon icon selects dark mode, and the sun icon returns to light mode. Accessible labels describe the action without visible theme text. A saved choice is restored before the page renders; first visits follow the device color scheme. The footer has a Pause background / Play background control. Preferences are stored locally in the browser, with graceful handling when storage is blocked.
 
 appearance.css provides full dark surfaces, the controls, and four-color CSS wallpaper. appearance.js manages preferences and subtle desktop-only mouse depth. The existing effects.js still manages scroll reveals and parallax. Drift and waves loop through transform/opacity animations; hidden pages pause, reduced-motion users receive a static background, and phones skip mouse tracking and use fewer effects. No animation libraries or backend changes are needed.
 
 ## Duck sounds and contact orbits
 Header and footer mascots are buttons; the adjacent wordmark still links Home. The supplied recordings are stored in assets/audio/duck-hover.mp3 and assets/audio/duck-click.mp3. Hover audio can be blocked by browser autoplay rules until a visitor first interacts with the page. Clicking the duck initiates its sound directly and shows a brief QUACK! fade. Audio never loops, does not overlap, and stops when the page is hidden.
 
-The home contact message is centered inside decorative orbital rings with Gmail, LinkedIn, and GitHub logo links. The orbit motion pauses while visitors interact, follows the background pause setting, and respects reduced motion. No phone number or WhatsApp destination is configured.
+The home contact message is centered inside decorative orbital rings with Gmail, LinkedIn, and GitHub logo links. Only the hovered or keyboard-focused logo pauses; its orbit resumes from the same point afterward. The background pause setting and reduced motion still stop all orbits. No phone number or WhatsApp destination is configured.
+
+## Day and night sky
+`sky.js` adds one decorative scene behind the existing content. Daytime uses soft sunlight, drifting CSS clouds, occasional small airplanes, and groups of birds. Nighttime uses a sparse, reproducible star field, softly lit planets, and a single reusable rocket. Its eight-second flight begins after about sixty seconds of active dark mode and repeats approximately once a minute. Light mode, reduced motion, background pause, and hidden pages do not keep a rocket timer running.
+
+`sky.css` fades the two scenes between themes and simplifies the scenery on phones. Motion uses transforms and opacity without animation libraries. The previous static decoration remains the fallback if the sky script cannot initialize. The yellow QUACK! callout and duck recordings remain available in both themes.

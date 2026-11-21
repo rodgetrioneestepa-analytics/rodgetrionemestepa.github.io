@@ -26,4 +26,9 @@ Tool explanations now use circular popups, and the old hover-instruction sentenc
 ## Mascot and contact interaction
 Duck buttons in the header and footer use the supplied first MP3 for pointer hover and the second for click or native keyboard activation. A brief QUACK! label fades in and out. The wordmark retains the Home link. Browser autoplay policies may prevent hover playback before the first visitor gesture; rejected playback does not break navigation.
 
-Three branded social logos orbit the centered contact copy. Decorative rings ignore pointer input, links retain accessible names and focus indicators, and animation pauses on interaction or when the wallpaper is paused. The mobile arrangement protects the text area. WhatsApp is omitted at the user's request; no phone number is configured.
+Three branded social logos orbit the centered contact copy. Decorative rings ignore pointer input, links retain accessible names and focus indicators, and each logo pauses independently on hover or keyboard focus. Its track and counterrotation share the paused state, preserving position and orientation. Background pause still stops all orbits. The mobile arrangement protects the text area. WhatsApp is omitted at the user's request; no phone number is configured.
+
+## Day/night scenery
+The theme control uses only the action icon: moon for dark mode and sun for light mode. Saved preferences and accessible labels remain in appearance.js. The QUACK! callout retains its font and fade, with #FFD700 lettering on navy for contrast in both themes.
+
+sky.js and sky.css provide two decorative scenes under the existing page-decor layer. A sparse star field and planets form the night scene; soft clouds, occasional planes, and small bird groups form the day scene. Opacity transitions blend the environments. CSS controls motion, and one cancellable timeout schedules a reusable eight-second rocket flight approximately every active minute in dark mode. Inactive themes, reduced motion, background suspension, and hidden pages avoid unnecessary animation work. No backend, database, content, or project-data changes are involved.

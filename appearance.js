@@ -25,8 +25,6 @@
     themeButtons.forEach((button) => {
       button.setAttribute('aria-pressed', String(isDark));
       button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      const label = button.querySelector('.theme-toggle-label');
-      if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
     });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', isDark ? '#0B1220' : '#F8FAFC');

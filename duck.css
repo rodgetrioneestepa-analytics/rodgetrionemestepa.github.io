@@ -8,7 +8,7 @@
 .footer-duck { width:44px; height:44px; }
 .footer-duck > img { width:40px; height:40px; }
 .duck-trigger.is-quacking { z-index:2; }
-.duck-quack { position:absolute; left:50%; bottom:calc(100% + 6px); z-index:2; display:block; padding:6px 10px; border:1px solid #4285f455; border-radius:999px; background:var(--s,#fff); color:var(--blue-ink,#174ea6); box-shadow:0 4px 15px #27416a18; font:700 .8125rem/1.3 var(--h,system-ui,sans-serif); letter-spacing:.065em; white-space:nowrap; pointer-events:none; opacity:0; visibility:hidden; transform:translateX(-50%); }
+.duck-quack { position:absolute; left:50%; bottom:calc(100% + 6px); z-index:2; display:block; padding:6px 10px; border:1px solid #ffd70066; border-radius:999px; background:#13233b; color:#FFD700; text-shadow:0 1px 1px #0008; box-shadow:0 4px 15px #13233b26; font:700 .8125rem/1.3 var(--h,system-ui,sans-serif); letter-spacing:.065em; white-space:nowrap; pointer-events:none; opacity:0; visibility:hidden; transform:translateX(-50%); }
 .top .duck-quack { top:calc(100% + 2px); bottom:auto; }
 .duck-trigger.is-quacking .duck-quack { visibility:visible; animation:duck-quack-pop 1.05s ease-out both; }
 .duck-trigger.is-quacking > img { animation:duck-nod .35s ease-out; }
