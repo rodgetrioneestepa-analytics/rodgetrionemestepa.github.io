@@ -46,7 +46,7 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] Reduced motion, hidden pages, and theme changes stop unnecessary scenery work
 
 ## Profile photo
-Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. The image files are unchanged. The themed frames use `object-fit: contain` to show the full photographs without distortion or cropping. Replace the relevant image to update that page. The previous photograph remains in the repository.
+Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. The original image files are unchanged. Both pages use a circular CSS crop with `aspect-ratio: 1 / 1`, `border-radius: 50%`, and `object-fit: cover`. The photo does not move, resize, or zoom when themes change. Replace the relevant image to update that page. The previous photograph remains in the repository.
 
 Project deep links preserve their original IDs. Basic project descriptions remain visible when JavaScript is disabled.
 
@@ -76,6 +76,6 @@ The home contact message is centered inside decorative orbital rings with Gmail,
 `sky.css` fades the two scenes between themes and simplifies the scenery on phones. Motion uses transforms and opacity without animation libraries. The previous static decoration remains the fallback if the sky script cannot initialize. The yellow QUACK! callout and duck recordings remain available in both themes.
 
 ## Farmer and astronaut profile frames
-Home and About share the `.themed-profile` component in `profile-themes.css`. The existing card dimensions, image-frame aspect ratios, captions, and original photo files are retained. Light mode adds a separate woven-straw hat along the upper frame edge and warm countryside accents. Dark mode crossfades to a metallic helmet with a transparent circular visor, subtle reflections, and a blue/purple rim glow.
+Home and About share the `.themed-profile` component in `profile-themes.css`. One `--profile-size` value, `min(360px, calc(100vw - 64px))`, sizes the photograph, circular container, and overlay wrappers identically on both pages. The layouts stack at tablet widths so the same circle fits without a page-specific size cap. Captions and original photo files are retained.
 
-The full photo fits inside the visor with extra inset in dark mode rather than a circular crop. Both SVG decorations are separate assets: `assets/profile-straw-hat.svg` and `assets/profile-space-helmet.svg`. Their wrappers are hidden from assistive technology and ignore pointer input. The 450ms theme transitions and gentle decorative motion respect reduced motion and hidden-page suspension.
+Light mode displays the existing woven-straw hat and warm rim. Dark mode crossfades to the aligned metallic helmet, reflections, and blue/purple visor glow. Only decoration opacity, colors, shadows, and effects change. The image has no theme-specific transform, padding, scaling, or movement. The square helmet asset and circular photo share the same center and dimensions. Both decorations remain separate SVG assets and ignore pointer input. The 400ms decorative transitions respect reduced motion and hidden-page suspension.
