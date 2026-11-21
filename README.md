@@ -43,7 +43,7 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] The icon-only moon/sun button switches themes and restores the saved selection on all pages
 - [ ] Dark mode has stars and planets; a rocket crosses after roughly one active minute
 - [ ] Light mode has soft clouds, occasional planes, and bird silhouettes
-- [ ] Pause background, reduced motion, hidden pages, and theme changes stop unnecessary scenery work
+- [ ] Reduced motion, hidden pages, and theme changes stop unnecessary scenery work
 
 ## Profile photo
 Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. The image files are unchanged. The themed frames use `object-fit: contain` to show the full photographs without distortion or cropping. Replace the relevant image to update that page. The previous photograph remains in the repository.
@@ -59,21 +59,23 @@ Duck assets: assets/duck-mascot.png (transparent 512px master), assets/duck-masc
 Home now lists Excel, Power BI, Python, SQL, Google Colab, and Looker. Edit the tool descriptions and tags in the toolkit section of index.html. toolkit.css provides circular popup styling and reduced-motion rules; toolkit.js opens circular explanations on mouse hover, keyboard focus, or tap, and closes them with Escape or an outside click. Product SVG marks and attribution notices are in assets/tools/. SQL uses a generic database symbol. About-page skills are maintained separately.
 
 ## Light/dark appearance and live wallpaper
-The navigation moon icon selects dark mode, and the sun icon returns to light mode. Accessible labels describe the action without visible theme text. A saved choice is restored before the page renders; first visits follow the device color scheme. The footer has a Pause background / Play background control. Preferences are stored locally in the browser, with graceful handling when storage is blocked.
+The navigation crescent moon selects dark mode and crossfades to a glowing full moon on hover or keyboard focus. In dark mode, the golden sun returns to light mode; hover or keyboard focus adds a soft halo and moving rays. The 400ms feedback keeps the icon and navigation dimensions fixed. Reduced motion uses static feedback. Accessible labels describe the action without visible theme text. A saved theme is restored before the page renders; first visits follow the device color scheme.
+
+The manual background pause control has been removed. Its obsolete saved preference is discarded so returning visitors are not left with paused scenery. Background motion still respects reduced motion and hidden-page suspension.
 
 appearance.css provides full dark surfaces, the controls, and four-color CSS wallpaper. appearance.js manages preferences and subtle desktop-only mouse depth. The existing effects.js still manages scroll reveals and parallax. Drift and waves loop through transform/opacity animations; hidden pages pause, reduced-motion users receive a static background, and phones skip mouse tracking and use fewer effects. No animation libraries or backend changes are needed.
 
 ## Duck sounds and contact orbits
 Header and footer mascots are buttons; the adjacent wordmark still links Home. The supplied recordings are stored in assets/audio/duck-hover.mp3 and assets/audio/duck-click.mp3. Hover audio can be blocked by browser autoplay rules until a visitor first interacts with the page. Clicking the duck initiates its sound directly and shows a brief QUACK! fade. Audio never loops, does not overlap, and stops when the page is hidden.
 
-The home contact message is centered inside decorative orbital rings with Gmail, LinkedIn, and GitHub logo links. Only the hovered or keyboard-focused logo pauses; its orbit resumes from the same point afterward. The background pause setting and reduced motion still stop all orbits. No phone number or WhatsApp destination is configured.
+The home contact message is centered inside decorative orbital rings with Gmail, LinkedIn, and GitHub logo links. Only the hovered or keyboard-focused logo pauses; its orbit resumes from the same point afterward. Reduced motion still stops all orbits. No phone number or WhatsApp destination is configured.
 
 ## Day and night sky
-`sky.js` adds one decorative scene behind the existing content. Daytime uses soft sunlight, drifting CSS clouds, occasional small airplanes, and groups of birds. Nighttime uses a sparse, reproducible star field, softly lit planets, and a single reusable rocket. Its eight-second flight begins after about sixty seconds of active dark mode and repeats approximately once a minute. Light mode, reduced motion, background pause, and hidden pages do not keep a rocket timer running.
+`sky.js` adds one decorative scene behind the existing content. Daytime uses soft sunlight, drifting CSS clouds, occasional small airplanes, and groups of birds. Nighttime uses a sparse, reproducible star field, softly lit planets, and a single reusable rocket. Its eight-second flight begins after about sixty seconds of active dark mode and repeats approximately once a minute. Light mode, reduced motion, and hidden pages do not keep a rocket timer running.
 
 `sky.css` fades the two scenes between themes and simplifies the scenery on phones. Motion uses transforms and opacity without animation libraries. The previous static decoration remains the fallback if the sky script cannot initialize. The yellow QUACK! callout and duck recordings remain available in both themes.
 
 ## Farmer and astronaut profile frames
 Home and About share the `.themed-profile` component in `profile-themes.css`. The existing card dimensions, image-frame aspect ratios, captions, and original photo files are retained. Light mode adds a separate woven-straw hat along the upper frame edge and warm countryside accents. Dark mode crossfades to a metallic helmet with a transparent circular visor, subtle reflections, and a blue/purple rim glow.
 
-The full photo fits inside the visor with extra inset in dark mode rather than a circular crop. Both SVG decorations are separate assets: `assets/profile-straw-hat.svg` and `assets/profile-space-helmet.svg`. Their wrappers are hidden from assistive technology and ignore pointer input. The 450ms theme transitions and gentle decorative motion respect reduced motion and the existing background pause/visibility settings.
+The full photo fits inside the visor with extra inset in dark mode rather than a circular crop. Both SVG decorations are separate assets: `assets/profile-straw-hat.svg` and `assets/profile-space-helmet.svg`. Their wrappers are hidden from assistive technology and ignore pointer input. The 450ms theme transitions and gentle decorative motion respect reduced motion and hidden-page suspension.

@@ -8,13 +8,13 @@
 <meta name="theme-color" content="#F8FAFC">
 <link rel="icon" href="assets/duck-favicon.png" type="image/png"><link rel="apple-touch-icon" href="assets/duck-touch-icon.png">
 <link rel="canonical" href="https://rodgetrioneestepa-analytics.github.io/rodgetrionemestepa.github.io/">
-<script>(()=>{const r=document.documentElement;r.classList.add('js');let t,m;try{t=localStorage.getItem('portfolio-theme');m=localStorage.getItem('portfolio-wallpaper')}catch{}const dark=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;const reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.dataset.theme=t==='dark'||t==='light'?t:dark?'dark':'light';r.dataset.wallpaper=m==='paused'||reduced?'paused':'animated';})();</script>
+<script>(()=>{const r=document.documentElement;r.classList.add('js');let t;try{t=localStorage.getItem('portfolio-theme')}catch{}const dark=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;const reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;r.dataset.theme=t==='dark'||t==='light'?t:dark?'dark':'light';r.dataset.wallpaper=reduced?'paused':'animated';})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=logo-photos-20261121">
 <link rel="stylesheet" href="toolkit.css?v=tool-circles-20261121b">
-<link rel="stylesheet" href="appearance.css?v=sky-toggle-20261121">
+<link rel="stylesheet" href="appearance.css?v=celestial-hover-20261121">
 <link rel="stylesheet" href="duck.css?v=yellow-quack-20261121">
 <link rel="stylesheet" href="contact-solar.css?v=individual-hover-20261121">
 <link rel="stylesheet" href="sky.css?v=day-night-20261121">
@@ -29,7 +29,7 @@
 <div class="header-actions"><nav id="nav" aria-label="Main">
 <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a>
 <a class="btn small" href="index.html#contact">Let&rsquo;s connect</a>
-</nav><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 14.3A8.8 8.8 0 0 1 9.7 4a8.8 8.8 0 1 0 10.3 10.3Z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button><button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button></div></div></header>
+</nav><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path class="moon-crescent" d="M20 14.3A8.8 8.8 0 0 1 9.7 4a8.8 8.8 0 1 0 10.3 10.3Z"/><g class="moon-full"><circle cx="12" cy="12" r="8" fill="#FFF2BF" stroke="#D6B96B" stroke-width=".9"/><g fill="#C5B787" fill-opacity=".34" stroke="none"><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="13.5" r="1.1"/><circle cx="10.5" cy="16" r=".75"/></g></g></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle class="sun-core" cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><g class="sun-rays"><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></g></svg></button><button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button></div></div></header>
 <main id="main">
 <div class="wrap hero">
 <div class="hero-copy">
@@ -72,12 +72,12 @@
 </div>
 </div></section>
 </main>
-<footer><div class="wrap"><span class="footer-signature"><button class="footer-duck duck-trigger" type="button" aria-label="Make the duck quack"><img src="assets/duck-mascot.webp" width="40" height="40" alt="" loading="lazy"><span class="duck-quack" aria-hidden="true">QUACK!</span></button>Rodge Trione Estepa &copy; 2026</span><div class="footer-controls"><button class="wallpaper-toggle" type="button" aria-pressed="false"><svg class="motion-icon-pause" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="5" y="3" width="3" height="14" rx="1"/><rect x="12" y="3" width="3" height="14" rx="1"/></svg><svg class="motion-icon-play" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7Z"/></svg><span class="wallpaper-toggle-label">Pause background</span></button><a href="#main">Back to top</a></div></div></footer>
+<footer><div class="wrap"><span class="footer-signature"><button class="footer-duck duck-trigger" type="button" aria-label="Make the duck quack"><img src="assets/duck-mascot.webp" width="40" height="40" alt="" loading="lazy"><span class="duck-quack" aria-hidden="true">QUACK!</span></button>Rodge Trione Estepa &copy; 2026</span><div class="footer-controls"><a href="#main">Back to top</a></div></div></footer>
 <script src="projects.js?v=material-duck-20261121"></script>
 <script src="main.js?v=material-duck-20261121"></script>
 <script src="toolkit.js?v=tool-circles-20261121"></script>
 <script src="effects.js?v=material-duck-20261121"></script>
-<script src="appearance.js?v=sky-toggle-20261121"></script>
+<script src="appearance.js?v=celestial-hover-20261121"></script>
 <script src="duck.js?v=duck-sounds-20261121"></script>
 <script src="sky.js?v=day-night-20261121"></script>
 </body>

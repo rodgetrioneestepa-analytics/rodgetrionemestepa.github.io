@@ -7,12 +7,13 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const desktop = window.matchMedia('(min-width: 861px)');
   const themeButtons = [...document.querySelectorAll('.theme-toggle')];
-  const motionButtons = [...document.querySelectorAll('.wallpaper-toggle')];
   const read = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* In-memory controls still work. */ } };
   let savedTheme = read('portfolio-theme');
   if (!['light', 'dark'].includes(savedTheme)) savedTheme = null;
-  let pausedByUser = read('portfolio-wallpaper') === 'paused';
+  // The manual background control was removed. Discard its old preference so
+  // returning visitors cannot remain paused without a control to resume it.
+  try { localStorage.removeItem('portfolio-wallpaper'); } catch { /* Storage can be blocked. */ }
   let pointerFrame = null;
   let trackingPointer = false;
   let pointerX = 0;
@@ -51,7 +52,7 @@
   };
   const onPointerOut = (event) => { if (!event.relatedTarget) resetPointer(); };
   const updatePointerTracking = () => {
-    const enabled = desktop.matches && finePointer.matches && !reducedMotion.matches && !pausedByUser && !document.hidden;
+    const enabled = desktop.matches && finePointer.matches && !reducedMotion.matches && !document.hidden;
     if (enabled === trackingPointer) return;
     trackingPointer = enabled;
     const method = enabled ? 'addEventListener' : 'removeEventListener';
@@ -61,29 +62,15 @@
     if (!enabled) resetPointer();
   };
   const applyWallpaper = () => {
-    const paused = pausedByUser || reducedMotion.matches;
+    const paused = reducedMotion.matches;
     root.dataset.wallpaper = paused ? 'paused' : 'animated';
     root.classList.toggle('wallpaper-suspended', Boolean(document.hidden));
-    motionButtons.forEach((button) => {
-      button.disabled = reducedMotion.matches;
-      button.setAttribute('aria-pressed', String(paused));
-      const label = reducedMotion.matches ? 'Motion reduced' : paused ? 'Play background' : 'Pause background';
-      button.setAttribute('aria-label', reducedMotion.matches ? 'Background animation respects your reduced-motion preference' : label);
-      const text = button.querySelector('.wallpaper-toggle-label');
-      if (text) text.textContent = label;
-    });
     updatePointerTracking();
   };
   themeButtons.forEach((button) => button.addEventListener('click', () => {
     savedTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     save('portfolio-theme', savedTheme);
     applyTheme();
-  }));
-  motionButtons.forEach((button) => button.addEventListener('click', () => {
-    if (reducedMotion.matches) return;
-    pausedByUser = !pausedByUser;
-    save('portfolio-wallpaper', pausedByUser ? 'paused' : 'animated');
-    applyWallpaper();
   }));
   colorPreference.addEventListener('change', () => { if (!savedTheme) applyTheme(); });
   reducedMotion.addEventListener('change', applyWallpaper);
@@ -95,10 +82,6 @@
       savedTheme = read('portfolio-theme');
       if (!['light', 'dark'].includes(savedTheme)) savedTheme = null;
       applyTheme();
-    }
-    if (event.key === 'portfolio-wallpaper' || event.key === null) {
-      pausedByUser = read('portfolio-wallpaper') === 'paused';
-      applyWallpaper();
     }
   });
   applyTheme();
