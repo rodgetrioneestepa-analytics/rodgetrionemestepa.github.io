@@ -12,7 +12,6 @@ window.CERTIFICATES = [
     "category": "course-completions",
     "typeLabel": "Course Completion",
     "description": "Completed an online course focused on business analytics using Microsoft Excel.",
-    "note": "Course completion only; not an official Microsoft certification.",
     "imageAlt": "Simplilearn SkillUp declaration of completion for Business Analytics with Excel, awarded to Rodge Trione M. Estepa.",
     "image": "assets/certificates/business-analytics-excel.jpg",
     "thumbnail": "assets/certificates/business-analytics-excel-thumb.webp",

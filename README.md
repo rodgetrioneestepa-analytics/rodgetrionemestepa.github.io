@@ -33,7 +33,7 @@ Open **Projects > Certificates** or `projects.html#certificates`. The gallery co
 
 To add a record, copy an object in `window.CERTIFICATES` in `certificates.js`, not `projects.js`. Use a unique `id`, `title`, `issuer`, `date`, `dateLabel`, `category`, `typeLabel`, `description`, `image`, `thumbnail`, `imageAlt`, and the original image's `width` and `height`. Categories are `course-completions`, `trainings`, or `competitions`. Leave `verificationUrl` empty unless a genuine HTTPS verification link exists; use `note` when clarification is needed. Put the original and a readable, uncropped thumbnail in `assets/certificates/`.
 
-Dates sort newest first. Keep the supplied precision: `2026-11-01` for a known day, `2026-07` or `2026-11` for a known month. Do not invent missing days. Keep the Simplilearn note that its course completion is not an official Microsoft certification; participation records do not imply an award or professional certification.
+Dates sort newest first. Keep the supplied precision: `2026-11-01` for a known day, `2026-07` or `2026-11` for a known month. Do not invent missing days. Use accurate course completion and participation labels; participation records do not imply an award or professional certification.
 
 Filters, totals, and cards update from the data automatically. Clicking a card or its keyboard-accessible **View Certificate** button opens the original in a modal with Fit, zoom, scrolling, and **Download original**. Close, Escape, or a backdrop click dismisses it and restores focus. Visible focus, descriptive image text, reduced-motion support, light/dark styling, and direct original-file fallbacks are included. The layout uses three, two, or one card per row across desktop, tablet, and mobile.
 
