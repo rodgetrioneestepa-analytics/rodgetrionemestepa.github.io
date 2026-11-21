@@ -62,7 +62,7 @@ p { text-wrap: pretty; }
 .top.is-scrolled { background: rgb(255 255 255 / .95); box-shadow: 0 7px 28px rgb(32 56 87 / .075); }
 .bar { min-height: 94px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; font: 700 1.45rem/1.2 var(--h); text-decoration: none; }
-.brand-mascot { display: inline-flex; align-items: center; justify-content: center; width: 62px; height: 62px; flex-shrink: 0; background: #fef7e0; border: 1px solid #f8e6b0; border-radius: 21px; }
+.brand-mascot { display: inline-flex; align-items: center; justify-content: center; width: 62px; height: 62px; flex-shrink: 0; background: transparent; border: 0; box-shadow: none; }
 .brand-mascot img { width: 54px; height: 57px; object-fit: contain; display: block; transition: transform .25s; }
 .brand:hover .brand-mascot img { transform: rotate(-5deg) translateY(-1px); }
 .brand-copy { display: flex; flex-direction: column; gap: 5px; }

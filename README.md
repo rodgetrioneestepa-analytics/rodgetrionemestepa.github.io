@@ -36,11 +36,11 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] With "reduce motion" enabled in your OS, the hero graphic does not animate
 
 ## Profile photo
-Your supplied photograph is saved at `assets/rodge-trione-estepa.jpg` and appears on Home and About. The original image is retained; CSS controls its display crop. Replace that image to update both pages.
+Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. These are the supplied photographs without image edits. CSS controls their display crop. Replace the relevant image to update that page. The previous photograph remains in the repository.
 
 Project deep links preserve their original IDs. Basic project descriptions remain visible when JavaScript is disabled.
 
 ## Light theme and duck mascot
 The Material-inspired four-color theme is in styles.css. effects.js provides optional observer reveals, restrained desktop parallax, sticky navigation effects, and reading progress; it respects reduced motion and keyboard focus.
 
-Duck assets: assets/duck-mascot.png (transparent 512px master), assets/duck-mascot.webp (optimized 320px navigation/footer image), assets/duck-favicon.png, and assets/duck-touch-icon.png. The existing profile photograph remains unchanged. See DESIGN-NOTES.md and assets/duck-logo-prompt.txt for implementation and asset details.
+Duck assets: assets/duck-mascot.png (transparent 512px master), assets/duck-mascot.webp (optimized 320px navigation/footer image), assets/duck-favicon.png, and assets/duck-touch-icon.png. Home and About use separate supplied photographs. The duck asset is transparent and its navigation wrapper has no background or border. See DESIGN-NOTES.md and assets/duck-logo-prompt.txt for implementation and asset details.
