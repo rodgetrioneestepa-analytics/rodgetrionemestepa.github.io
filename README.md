@@ -12,6 +12,7 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 - `duck.js`, `duck.css`: mascot audio and the QUACK! interaction
 - `contact-solar.css`: responsive social-logo orbits around the contact message
 - `sky.js`, `sky.css`: daytime/nighttime scenery and the one-minute rocket schedule
+- `theme-schedule.js`: shared Philippine-time theme selection before CSS loads on all three pages
 - `profile-themes.css`: reusable farmer/astronaut styling for Home and About photos
 
 ## Publish
@@ -55,7 +56,8 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] With "reduce motion" enabled in your OS, the hero graphic does not animate
 - [ ] Duck hover uses the first recording; click, Enter, or Space uses the second and shows QUACK!
 - [ ] Each contact logo pauses in place on its own hover or keyboard focus; the other logos keep moving
-- [ ] The icon-only moon/sun button switches themes and restores the saved selection on all pages
+- [ ] Automatic appearance follows Philippine time (UTC+8): light 06:00–16:59 and dark 17:00–05:59, regardless of device time zone
+- [ ] The moon/sun override carries across all pages, expires at the next 06:00 or 17:00 Philippine-time boundary, and resumes the schedule after returning to a hidden page
 - [ ] Dark mode has stars and planets; a rocket crosses after roughly one active minute
 - [ ] Light mode has soft clouds, occasional planes, and bird silhouettes
 - [ ] Reduced motion, hidden pages, and theme changes stop unnecessary scenery work
@@ -74,11 +76,13 @@ Duck assets: assets/duck-mascot.png (transparent 512px master), assets/duck-masc
 Home now lists Excel, Power BI, Python, SQL, Google Colab, and Looker. Edit the tool descriptions and tags in the toolkit section of index.html. toolkit.css provides circular popup styling and reduced-motion rules; toolkit.js opens circular explanations on mouse hover, keyboard focus, or tap, and closes them with Escape or an outside click. Product SVG marks and attribution notices are in assets/tools/. SQL uses a generic database symbol. About-page skills are maintained separately.
 
 ## Light/dark appearance and live wallpaper
-The navigation crescent moon selects dark mode and crossfades to a glowing full moon on hover or keyboard focus. In dark mode, the golden sun returns to light mode; hover or keyboard focus adds a soft halo and moving rays. The 400ms feedback keeps the icon and navigation dimensions fixed. Reduced motion uses static feedback. Accessible labels describe the action without visible theme text. A saved theme is restored before the page renders; first visits follow the device color scheme.
+Appearance follows Philippine time (UTC+8): light from 06:00 through 16:59, and dark from 17:00 through 05:59. `theme-schedule.js` selects the theme before CSS on Home, About, and Projects. The moon/sun button creates a temporary override that carries across pages until the next 06:00 or 17:00 Philippine-time boundary. The old unlimited `portfolio-theme` preference no longer controls appearance.
+
+The navigation crescent moon selects dark mode and crossfades to a glowing full moon on hover or keyboard focus. In dark mode, the golden sun returns to light mode; hover or keyboard focus adds a soft halo and moving rays. The 400ms feedback keeps the icon and navigation dimensions fixed. Reduced motion uses static feedback. Accessible labels describe the action without visible theme text.
 
 The manual background pause control has been removed. Its obsolete saved preference is discarded so returning visitors are not left with paused scenery. Background motion still respects reduced motion and hidden-page suspension.
 
-appearance.css provides full dark surfaces, the controls, and four-color CSS wallpaper. appearance.js manages preferences and subtle desktop-only mouse depth. The existing effects.js still manages scroll reveals and parallax. Drift and waves loop through transform/opacity animations; hidden pages pause, reduced-motion users receive a static background, and phones skip mouse tracking and use fewer effects. No animation libraries or backend changes are needed.
+appearance.css provides full dark surfaces, the controls, and four-color CSS wallpaper. appearance.js maintains one timeout for the next scheduled boundary, pauses it while the page is hidden, and rechecks time on focus, pageshow, and visibility changes. It also manages subtle desktop-only mouse depth. The existing effects.js still manages scroll reveals and parallax. Drift and waves loop through transform/opacity animations; hidden pages pause, reduced-motion users receive a static background, and phones skip mouse tracking and use fewer effects. No animation libraries or backend changes are needed.
 
 ## Duck sounds and contact orbits
 Header and footer mascots are buttons; the adjacent wordmark still links Home. The supplied recordings are stored in assets/audio/duck-hover.mp3 and assets/audio/duck-click.mp3. Hover audio can be blocked by browser autoplay rules until a visitor first interacts with the page. Clicking the duck initiates its sound directly and shows a brief QUACK! fade. Audio never loops, does not overlap, and stops when the page is hidden.

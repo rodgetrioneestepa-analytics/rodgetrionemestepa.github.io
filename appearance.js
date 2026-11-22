@@ -1,16 +1,12 @@
-/* Local appearance preferences and event-driven wallpaper depth. No render loop. */
+/* Philippine-time appearance and event-driven wallpaper depth. No render loop. */
 (() => {
   'use strict';
   const root = document.documentElement;
-  const colorPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  const schedule = window.PortfolioTheme;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const desktop = window.matchMedia('(min-width: 861px)');
   const themeButtons = [...document.querySelectorAll('.theme-toggle')];
-  const read = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
-  const save = (key, value) => { try { localStorage.setItem(key, value); } catch { /* In-memory controls still work. */ } };
-  let savedTheme = read('portfolio-theme');
-  if (!['light', 'dark'].includes(savedTheme)) savedTheme = null;
   // The manual background control was removed. Discard its old preference so
   // returning visitors cannot remain paused without a control to resume it.
   try { localStorage.removeItem('portfolio-wallpaper'); } catch { /* Storage can be blocked. */ }
@@ -18,10 +14,12 @@
   let trackingPointer = false;
   let pointerX = 0;
   let pointerY = 0;
+  let themeTimer = null;
+  let pageSuspended = false;
 
   const applyTheme = () => {
-    const theme = savedTheme || (colorPreference.matches ? 'dark' : 'light');
-    root.dataset.theme = theme;
+    const theme = schedule.chooseTheme();
+    if (root.dataset.theme !== theme) root.dataset.theme = theme;
     const isDark = theme === 'dark';
     themeButtons.forEach((button) => {
       button.setAttribute('aria-pressed', String(isDark));
@@ -29,6 +27,17 @@
     });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', isDark ? '#0B1220' : '#F8FAFC');
+  };
+  const stopThemeTimer = () => {
+    if (themeTimer !== null) window.clearTimeout(themeTimer);
+    themeTimer = null;
+  };
+  const syncTheme = () => {
+    stopThemeTimer();
+    applyTheme();
+    if (document.hidden || pageSuspended) return;
+    const now = Date.now();
+    themeTimer = window.setTimeout(syncTheme, Math.max(1, schedule.getState(now).nextChange - now));
   };
   const resetPointer = () => {
     if (pointerFrame !== null) window.cancelAnimationFrame(pointerFrame);
@@ -68,22 +77,19 @@
     updatePointerTracking();
   };
   themeButtons.forEach((button) => button.addEventListener('click', () => {
-    savedTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    save('portfolio-theme', savedTheme);
-    applyTheme();
+    schedule.setOverride(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    syncTheme();
   }));
-  colorPreference.addEventListener('change', () => { if (!savedTheme) applyTheme(); });
   reducedMotion.addEventListener('change', applyWallpaper);
   finePointer.addEventListener('change', updatePointerTracking);
   desktop.addEventListener('change', updatePointerTracking);
-  document.addEventListener('visibilitychange', applyWallpaper);
+  document.addEventListener('visibilitychange', () => { syncTheme(); applyWallpaper(); });
+  window.addEventListener('focus', syncTheme);
+  window.addEventListener('pageshow', () => { pageSuspended = false; syncTheme(); });
+  window.addEventListener('pagehide', () => { pageSuspended = true; stopThemeTimer(); });
   window.addEventListener('storage', (event) => {
-    if (event.key === 'portfolio-theme' || event.key === null) {
-      savedTheme = read('portfolio-theme');
-      if (!['light', 'dark'].includes(savedTheme)) savedTheme = null;
-      applyTheme();
-    }
+    if (event.key === 'portfolio-theme-override' || event.key === null) syncTheme();
   });
-  applyTheme();
+  syncTheme();
   applyWallpaper();
 })();
