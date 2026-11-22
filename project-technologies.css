@@ -1,0 +1,287 @@
+/* Verified project technology, method, and source details within existing cards. */
+.project-card .body,
+.project-card .project-detail-flow,
+.project-card .project-detail-section,
+.project-card .project-tech-group {
+  min-width: 0;
+}
+
+.project-card .body > h3,
+.project-card .project-detail-flow p,
+.project-card .project-detail-flow a {
+  overflow-wrap: anywhere;
+}
+
+.project-card .body > .project-tools-label {
+  margin: 22px 0 10px;
+  color: var(--t);
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.project-card .project-tool-chips,
+.project-card .project-method-chips,
+.project-card .project-source-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 18px;
+  list-style: none;
+}
+
+.project-card .tech-chip {
+  --tech-bg: #f1f5fb;
+  --tech-border: #dce4ef;
+  --tech-ink: #43536a;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 36px;
+  padding: 5px 10px;
+  border: 1px solid var(--tech-border);
+  border-radius: 11px;
+  background: var(--tech-bg);
+  color: var(--tech-ink);
+  font: 500 .875rem/1.45 var(--p);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.project-card .tech-chip > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.project-card .tech-chip[data-tool-tone="blue"] {
+  --tech-bg: #eef4ff;
+  --tech-border: #d2e1fa;
+  --tech-ink: #174ea6;
+}
+
+.project-card .tech-chip[data-tool-tone="green"] {
+  --tech-bg: #edf7f0;
+  --tech-border: #cde8d5;
+  --tech-ink: #156c36;
+}
+
+.project-card .tech-chip[data-tool-tone="red"] {
+  --tech-bg: #fdf0ee;
+  --tech-border: #f4d6d1;
+  --tech-ink: #a63126;
+}
+
+.project-card .tech-chip[data-tool-tone="yellow"] {
+  --tech-bg: #fff8e6;
+  --tech-border: #efdfaf;
+  --tech-ink: #765300;
+}
+
+.project-card .tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  border-radius: 6px;
+  background: #fff;
+  color: #243449;
+  font: 700 .6875rem/1 var(--p);
+}
+
+.project-card .tech-icon img,
+.project-card .tech-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.project-card .tech-more {
+  border-style: dashed;
+  color: var(--m);
+  background: transparent;
+  font-weight: 700;
+}
+
+.project-card .project-detail-flow {
+  display: grid;
+  gap: 24px;
+}
+
+.project-card .project-detail-section h4 {
+  margin: 0 0 10px;
+  color: var(--t);
+  font: 700 1.0625rem/1.4 var(--h);
+  letter-spacing: -.015em;
+}
+
+.project-card .project-detail-section p {
+  color: var(--m);
+  font-size: .9375rem;
+  line-height: 1.8;
+}
+
+.project-card .project-tech-group + .project-tech-group {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.project-card .project-tech-group h5 {
+  margin: 0 0 12px;
+  color: var(--t);
+  font: 700 .875rem/1.5 var(--p);
+}
+
+.project-card .project-tool-chips-full,
+.project-card .project-method-chips,
+.project-card .project-source-chips {
+  margin-bottom: 12px;
+}
+
+.project-card .project-tool-notes {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.project-card .project-tool-notes li {
+  display: grid;
+  grid-template-columns: minmax(0, .42fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 8px 14px;
+  color: var(--m);
+  font-size: .875rem;
+  line-height: 1.7;
+}
+
+.project-card .project-tool-notes strong,
+.project-card .project-tool-notes span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.project-card .project-tool-notes strong {
+  color: var(--t);
+  font-weight: 500;
+}
+
+.project-card .project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  padding-top: 20px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.project-card .project-actions .btn {
+  max-width: 100%;
+  color: #111827;
+  text-align: center;
+}
+
+.project-card .project-contact-link {
+  color: var(--blue-ink);
+  font-size: .875rem;
+  font-weight: 500;
+  text-underline-offset: 4px;
+}
+
+.project-card .project-real-preview img,
+.project-card .prev .project-real-preview img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-card .project-evidence-caption {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--s);
+  color: var(--m);
+  font-size: .8125rem;
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .project-card .tech-chip {
+  --tech-bg: #1a2940;
+  --tech-border: #34465e;
+  --tech-ink: #d1ddef;
+}
+
+[data-theme="dark"] .project-card .tech-chip[data-tool-tone="blue"] {
+  --tech-bg: #182e4c;
+  --tech-border: #33537e;
+  --tech-ink: #b9d3ff;
+}
+
+[data-theme="dark"] .project-card .tech-chip[data-tool-tone="green"] {
+  --tech-bg: #16362c;
+  --tech-border: #305c48;
+  --tech-ink: #ace5bc;
+}
+
+[data-theme="dark"] .project-card .tech-chip[data-tool-tone="red"] {
+  --tech-bg: #3c272b;
+  --tech-border: #704047;
+  --tech-ink: #ffc5bf;
+}
+
+[data-theme="dark"] .project-card .tech-chip[data-tool-tone="yellow"] {
+  --tech-bg: #3b331e;
+  --tech-border: #665630;
+  --tech-ink: #f8dfa3;
+}
+
+[data-theme="dark"] .project-card .tech-more {
+  background: transparent;
+  color: var(--m);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card .tech-chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--card-accent);
+    box-shadow: 0 4px 9px rgb(25 48 77 / .08);
+  }
+  .project-card .tech-more:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .project-card .project-tool-notes li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .project-card .project-detail-flow { gap: 22px; }
+  .project-card .project-actions { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card .tech-chip { transition: none; }
+  .project-card .tech-chip:hover { transform: none; }
+}
+
+@media print {
+  [data-theme] .project-card .tech-chip {
+    color: #222;
+    background: #fff;
+    border-color: #aaa;
+    box-shadow: none;
+    transform: none;
+  }
+  .project-card .project-tool-notes { break-inside: avoid; }
+}

@@ -9,6 +9,7 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 - `certificates.js`: **certificate and training records; edit this file to add learning records**
 - `certificate-gallery.js`, `certificate-gallery.css`: certificate cards, filters, and the accessible image viewer
 - `main.js`: navigation, tabs, expandable overviews
+- `project-technologies.css`: responsive project technology chips, details, reference images, and light/dark styling
 - `duck.js`, `duck.css`: mascot audio and the QUACK! interaction
 - `contact-solar.css`: responsive social-logo orbits around the contact message
 - `sky.js`, `sky.css`: daytime/nighttime scenery and the one-minute rocket schedule
@@ -21,10 +22,18 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 
 ## Add a new project
 1. Open `projects.js` and copy one of the objects in `window.PROJECTS`.
-2. Give it a unique `id`, a `category` (`new-projects`, `certifications`, `internships`, `case-studies` or `competitions`), a `title`, `summary`, `tools` list, and `overview` paragraphs. Certificate and training records use the separate instructions below.
-3. Use a real screenshot: put it in an `assets/` folder and add `image:'assets/my-shot.png'` and `imageAlt:'What the screenshot shows'`. Remove `preview` and `concept`.
-4. Add `link:'https://...'` only when a real link exists. Set `featured:true` to also show it on Home.
-5. Only add what is true. Empty categories show an honest "nothing yet" message automatically.
+2. Give it a unique `id`, a `category` (`new-projects`, `certifications`, `internships`, `case-studies` or `competitions`), `kind`, `title`, and `summary`. Certificate and training records use the separate instructions below.
+3. Add `tools` objects with `{name, icon, role, tone}`. `name` is the visible label, `icon` selects a supported local mark or generic symbol, `role` explains how the tool was used, and `tone` selects `blue`, `red`, `yellow`, `green`, or neutral styling. Existing string tool lists remain supported.
+4. Keep `methods` and `dataSources` separate from software. Methods use `{name, role}`; data sources use `{name, role, link}` with an optional genuine public reference URL. A hosting service belongs under Tools & Platforms with a deployment role; a forecasting approach belongs under Methods & Techniques; FAOSTAT belongs under Data Sources.
+5. Use `details:{built, why, how, learned}` for the expanded What I built, Why I built it, How it works, and What I learned sections. The shared renderer inserts Tools & Technologies Used between the purpose and workflow. Older `overview` paragraph arrays remain supported.
+6. Put a real preview in `assets/projects/` and set `image`, descriptive `imageAlt`, and an accurate `evidenceLabel`. Remove `preview` and `concept` only when replacing a concept illustration with a genuine reference. Reference images open directly at full size. Keep asset provenance in `assets/projects/README.md`.
+7. Add `link` and an optional `linkLabel` only for a real project destination. `contactLink` provides the separate Learn more on LinkedIn action. `featured:true` also shows the card on Home. Do not invent unavailable demos, implementation tools, outcomes, or proficiency claims.
+
+Main cards show up to four prominent tools in their data order and a `+N More` indicator when additional tools exist. Expanded details display every listed tool and its role, followed by separate Methods & Techniques and Data Sources groups. Chips share consistent spacing, local icons, restrained hover feedback, light/dark colors, and reduced-motion support. Project links and expansion buttons retain visible keyboard focus.
+
+The four academic projects are featured on Home. METRICAST, JRU Library Assist, and FAOSTAT Dashboard are in New projects; ASEAN Data Science Explorers 2026 is in Competitions. The two earlier concept projects remain in New projects with their original IDs and illustrations, and are no longer featured. The METRICAST archive supplied screenshots rather than implementation source, so its frontend framework, database product, libraries, and Vercel deployment are not asserted. Python is user-provided information; the CSV/POS workflow is visible in the references.
+
+Project content and previews are curated references. Source archives, full source PDFs, private FAQ workbooks, business records, and environment files are not published as portfolio assets.
 
 Deep links work: `projects.html#restaurant-sales` opens that project; `projects.html#internships` opens that tab.
 
@@ -47,6 +56,8 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] At 360px wide: Menu button opens and closes the nav (also with Esc)
 - [ ] Projects tabs: click, then Left/Right/Home/End keys; each category opens
 - [ ] Empty categories show the empty message; "Show overview" expands each card
+- [ ] Academic project details separate tools/platforms, methods/techniques, and data sources; JRU shows four prominent tools plus `+7 More`, then all eleven tools inside its details
+- [ ] Project reference images load, genuine application/dashboard links open, and long chips and details fit at 360px in both themes
 - [ ] Certificates: All/Course Completions/Trainings/Competitions show 4/2/1/1 records in date order
 - [ ] Each certificate opens uncropped; Fit, zoom, scrolling, original download, and Close/Escape/backdrop dismissal work
 - [ ] Certificate keyboard focus returns to its View button; test both themes and three/two/one-column layouts
