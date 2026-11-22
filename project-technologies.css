@@ -245,6 +245,10 @@
   --tech-ink: #d1ddef;
 }
 
+[data-theme="dark"] .project-card:nth-child(4n+4) {
+  --card-ink: #f8dfa3;
+}
+
 [data-theme="dark"] .project-card .tech-chip[data-tool-tone="blue"] {
   --tech-bg: #182e4c;
   --tech-border: #33537e;
