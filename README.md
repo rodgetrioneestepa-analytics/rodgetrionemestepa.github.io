@@ -26,16 +26,18 @@ Plain HTML, CSS and JavaScript. No build step, so it works on GitHub Pages as is
 3. Add `tools` objects with `{name, icon, role, tone}`. `name` is the visible label, `icon` selects a supported local mark or generic symbol, `role` explains how the tool was used, and `tone` selects `blue`, `red`, `yellow`, `green`, or neutral styling. Existing string tool lists remain supported.
 4. Keep `methods` and `dataSources` separate from software. Methods use `{name, role}`; data sources use `{name, role, link}` with an optional genuine public reference URL. A hosting service belongs under Tools & Platforms with a deployment role; a forecasting approach belongs under Methods & Techniques; FAOSTAT belongs under Data Sources.
 5. Use `details:{built, why, how, learned}` for the expanded What I built, Why I built it, How it works, and What I learned sections. The shared renderer inserts Tools & Technologies Used between the purpose and workflow. Older `overview` paragraph arrays remain supported.
-6. Put a real preview in `assets/projects/` and set `image`, descriptive `imageAlt`, and an accurate `evidenceLabel`. Remove `preview` and `concept` only when replacing a concept illustration with a genuine reference. Reference images open directly at full size. Keep asset provenance in `assets/projects/README.md`.
+6. Put a real preview in `assets/projects/` and set `image` and descriptive `imageAlt`. Optional `imageFit:'cover'` fills the shared preview area with a top-aligned crop; FAOSTAT and ASEAN use this setting. Other images remain contained. Clicking a reference opens the complete image at full size. Project images have no visible captions. Keep asset provenance in `assets/projects/README.md`.
 7. Add `link` and an optional `linkLabel` only for a real project destination. `contactLink` provides the separate Learn more on LinkedIn action. `featured:true` also shows the card on Home. Do not invent unavailable demos, implementation tools, outcomes, or proficiency claims.
 
 Main cards show up to four prominent tools in their data order and a `+N More` indicator when additional tools exist. Expanded details display every listed tool and its role, followed by separate Methods & Techniques and Data Sources groups. Chips share consistent spacing, local icons, restrained hover feedback, light/dark colors, and reduced-motion support. Project links and expansion buttons retain visible keyboard focus.
 
-The four academic projects are featured on Home. METRICAST, JRU Library Assist, and FAOSTAT Dashboard are in New projects; ASEAN Data Science Explorers 2026 is in Competitions. The two earlier concept projects remain in New projects with their original IDs and illustrations, and are no longer featured. The METRICAST archive supplied screenshots rather than implementation source, so its frontend framework, database product, libraries, and Vercel deployment are not asserted. Python is user-provided information; the CSV/POS workflow is visible in the references.
+The portfolio contains four academic projects, all featured on Home. METRICAST, JRU Library Assist, and FAOSTAT Dashboard are in New projects; ASEAN Data Science Explorers 2026 is in Competitions. The earlier Restaurant Sales Dashboard and Inventory Management System concept cards have been removed, including their no-script entries. The METRICAST archive supplied screenshots rather than implementation source, so its frontend framework, database product, libraries, and Vercel deployment are not asserted. Python is user-provided information; the CSV/POS workflow is visible in the references.
+
+Collapsed project grids use equal card heights and consistent preview geometry. Opening project details lets cards size naturally so one expanded card does not stretch every other card. Both layouts retain responsive wrapping and light/dark styling.
 
 Project content and previews are curated references. Source archives, full source PDFs, private FAQ workbooks, business records, and environment files are not published as portfolio assets.
 
-Deep links work: `projects.html#restaurant-sales` opens that project; `projects.html#internships` opens that tab.
+Deep links work: `projects.html#jru-library-assist` opens that project's details; `projects.html#internships` opens that tab.
 
 ## Certifications & Trainings
 
@@ -55,9 +57,11 @@ Open the site locally (for example `python3 -m http.server`) and check:
 - [ ] Home, About, Projects all load; the active nav link is highlighted
 - [ ] At 360px wide: Menu button opens and closes the nav (also with Esc)
 - [ ] Projects tabs: click, then Left/Right/Home/End keys; each category opens
-- [ ] Empty categories show the empty message; "Show overview" expands each card
+- [ ] Empty categories show the empty message; "Show project details" expands each card
 - [ ] Academic project details separate tools/platforms, methods/techniques, and data sources; JRU shows four prominent tools plus `+7 More`, then all eleven tools inside its details
-- [ ] Project reference images load, genuine application/dashboard links open, and long chips and details fit at 360px in both themes
+- [ ] Project reference images load without captions; FAOSTAT and ASEAN fill the preview area and still open their complete images
+- [ ] Collapsed cards have equal heights; opening details does not stretch the other cards; long chips and details fit at 360px in both themes
+- [ ] Genuine application/dashboard links open, and only the four academic projects appear in both scripted and no-script content
 - [ ] Certificates: All/Course Completions/Trainings/Competitions show 4/2/1/1 records in date order
 - [ ] Each certificate opens uncropped; Fit, zoom, scrolling, original download, and Close/Escape/backdrop dismissal work
 - [ ] Certificate keyboard focus returns to its View button; test both themes and three/two/one-column layouts
@@ -76,7 +80,7 @@ Open the site locally (for example `python3 -m http.server`) and check:
 ## Profile photo
 Home uses `assets/rodge-home.jpg`; About uses `assets/rodge-about.jpg`. The original image files are unchanged. Both pages use a circular CSS crop with `aspect-ratio: 1 / 1`, `border-radius: 50%`, and `object-fit: cover`. The photo does not move, resize, or zoom when themes change. Replace the relevant image to update that page. The previous photograph remains in the repository.
 
-Project deep links preserve their original IDs. Basic project descriptions remain visible when JavaScript is disabled.
+Project deep links use the four current academic project IDs. Basic project descriptions remain visible when JavaScript is disabled.
 
 ## Light theme and duck mascot
 The Material-inspired four-color theme is in styles.css. effects.js provides optional observer reveals, restrained desktop parallax, sticky navigation effects, and reading progress; it respects reduced motion and keyboard focus.

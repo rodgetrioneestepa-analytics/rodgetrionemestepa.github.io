@@ -56,8 +56,8 @@ const projectDetails=p=>{
 };
 const card=(p,full)=>{
   const tools=toolsFor(p),title=p.details?'Show project details':'Show overview',close=p.details?'Hide project details':'Hide overview';
-  return `<article class="card project-card" id="${esc(p.id)}">
-${p.image?`<figure class="prev project-real-preview"><a href="${esc(p.image)}" target="_blank" rel="noopener" aria-label="Open reference image for ${esc(p.title)}"><img src="${esc(p.image)}" alt="${esc(p.imageAlt||p.title)}" loading="lazy" decoding="async"></a>${p.evidenceLabel?`<figcaption class="project-evidence-caption">${esc(p.evidenceLabel)}</figcaption>`:''}</figure>`:p.preview?`<figure class="prev">${ART[p.preview]||''}${p.concept?'<span class="badge">Concept illustration</span>':''}</figure>`:''}
+  return `<article class="card project-card${p.imageFit==='cover'?' project-preview-fill':''}" id="${esc(p.id)}">
+${p.image?`<figure class="prev project-real-preview"><a href="${esc(p.image)}" target="_blank" rel="noopener" aria-label="Open reference image for ${esc(p.title)}"><img src="${esc(p.image)}" alt="${esc(p.imageAlt||p.title)}" loading="lazy" decoding="async"></a></figure>`:p.preview?`<figure class="prev">${ART[p.preview]||''}${p.concept?'<span class="badge">Concept illustration</span>':''}</figure>`:''}
 <div class="body"><p class="kind">${esc(p.kind)}</p><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
 <p class="project-tools-label">Tools &amp; Technologies Used</p><ul class="project-tool-chips" aria-label="Prominent tools and platforms">${tools.slice(0,4).map(t=>chip(t,'code')).join('')}${tools.length>4?`<li class="tech-chip tech-more" aria-label="${tools.length-4} more tools in project details">+${tools.length-4} More</li>`:''}</ul>
 ${full?`<button class="more" type="button" aria-expanded="false" aria-controls="ov-${esc(p.id)}" data-open-label="${title}" data-close-label="${close}">${title}</button><div class="ov" id="ov-${esc(p.id)}" hidden>${projectDetails(p)}</div>`:`<a class="more" href="projects.html#${esc(p.id)}">Explore the project</a>`}

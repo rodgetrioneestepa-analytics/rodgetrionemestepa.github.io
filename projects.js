@@ -15,7 +15,6 @@ window.PROJECTS=[
     summary:'A restaurant analytics and forecasting project connecting POS data preparation with sales, product and operational insights.',
     image:'assets/projects/metricast-reference.webp',
     imageAlt:'METRICAST data-management interface showing related transaction, product-sales and payment CSV imports.',
-    evidenceLabel:'Project reference image · POS data management',
     tools:[
       tool('Python','python','Sales forecasting and data analysis.'),
       tool('CSV / POS Data Processing','data','Importing and preparing related restaurant transaction records.','green')
@@ -41,7 +40,6 @@ window.PROJECTS=[
     summary:'A library FAQ assistant that finds relevant source passages and produces conversational answers with citations.',
     image:'assets/projects/jru-library-assist.webp',
     imageAlt:'JRU Library Assist chat interface displaying a library-hours answer and source citations.',
-    evidenceLabel:'Live application interface',
     tools:[
       tool('Python','python','Backend application and document-retrieval pipeline.'),
       tool('Groq API','groq','Language-model responses and conversational query rewriting.','red'),
@@ -78,7 +76,7 @@ window.PROJECTS=[
     summary:'An interactive view of Asian crop and livestock performance, historical trends, descriptive statistics and rice forecasts.',
     image:'assets/projects/faostat-dashboard.webp',
     imageAlt:'Asian Agricultural Production Overview dashboard with production trends, regional comparisons, yield indicators and a country map.',
-    evidenceLabel:'Dashboard reference · Asian agricultural production',
+    imageFit:'cover',
     tools:[tool('Google Looker Studio / Data Studio','looker','Interactive dashboard authoring, visual reporting and filters.')],
     methods:[
       method('Data Visualization','Charts, maps and filters for comparing countries, regions and commodities.'),
@@ -102,7 +100,7 @@ window.PROJECTS=[
     summary:'An education-to-employment data story examining Philippine youth labor-market indicators, participation and gender differences.',
     image:'assets/projects/asean-dse-2026.webp',
     imageAlt:'Philippine Youth and Education Dashboard comparing youth employment, unemployment, labor-force participation and NEET indicators.',
-    evidenceLabel:'Team dashboard · Heavy Bummers',
+    imageFit:'cover',
     tools:[
       tool('SAP Analytics Cloud','sap','Dashboard charts and a story exploring Philippine youth labor-market indicators.'),
       tool('Canva','canva','Design and presentation of the team’s data story.','green')
@@ -123,38 +121,6 @@ window.PROJECTS=[
       learned:'I learned to interpret several labor-market indicators together and to distinguish descriptive patterns from evidence of cause and effect.'
     },
     contactLink:linkedin
-  },
-  {
-    id:'restaurant-sales',            // unique, lowercase, no spaces (used in links like projects.html#restaurant-sales)
-    category:'new-projects',          // must match a category id above
-    featured:false,                   // the supplied academic projects are featured on Home
-    kind:'Business intelligence',
-    title:'Restaurant Sales Dashboard',
-    summary:'Turning daily sales into a clearer view of restaurant performance, busy periods, and menu items that need attention.',
-    tools:['Excel','Power BI','DAX'],
-    preview:'sales',                  // 'sales', 'inventory', or leave out
-    concept:true,                     // shows the "Concept illustration" label
-    overview:[
-      'Built with Excel, Power BI and DAX to turn daily sales into a clearer view of restaurant performance. It focuses on busy periods and the menu items that need attention.',
-      'The preview above is a concept illustration, not a screenshot of the dashboard. Screenshots and a project link will be added when they are ready.'
-    ],
-    link:''                           // optional: https://... adds a "View project" link
-  },
-  {
-    id:'inventory-management',
-    category:'new-projects',
-    featured:false,
-    kind:'Application development',
-    title:'Inventory Management System',
-    summary:'A practical stock management application designed to track inventory and make reorder decisions easier.',
-    tools:['Python','SQL'],
-    preview:'inventory',
-    concept:true,
-    overview:[
-      'A stock management application built with Python and SQL, designed to track inventory and make reorder decisions easier.',
-      'The preview above is a concept illustration, not a screenshot of the application. Screenshots and a project link will be added when they are ready.'
-    ],
-    link:''
   }
 ];
 })();
