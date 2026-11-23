@@ -1,4 +1,4 @@
-/* One viewport-based circle is shared by Home and About in every theme. */
+/* Shared, undecorated portrait geometry on Home and About in both themes. */
 :root { --profile-size:min(360px,calc(100vw - 64px)); }
 .page-home .hero,.page-about .about-intro {
   grid-template-columns:minmax(0,1fr) var(--profile-size);
@@ -23,12 +23,8 @@
   border:0;
   box-shadow:none;
 }
-.profile-card.themed-profile.reveal {
-  transition:opacity .55s cubic-bezier(.2,.65,.3,1) var(--reveal-delay,0ms),transform .55s cubic-bezier(.2,.65,.3,1) var(--reveal-delay,0ms);
-}
 .themed-profile .profile-visual {
   position:relative;
-  isolation:isolate;
   width:var(--profile-size);
   height:var(--profile-size);
   aspect-ratio:1 / 1;
@@ -38,37 +34,22 @@
   transition:none;
 }
 .themed-profile .profile-frame {
-  position:absolute;
-  inset:0;
-  isolation:isolate;
+  position:relative;
   width:100%;
   height:100%;
   aspect-ratio:1 / 1;
   border:0;
   border-radius:50%;
   overflow:hidden;
-  background:#e8eed7;
+  background:#e9edf1;
+  box-shadow:0 8px 30px #17253d12;
   transform:none;
   animation:none;
-  transition:background-color .4s ease;
+  transition:none;
 }
-.themed-profile .profile-frame::before { content:none; }
-.themed-profile .profile-frame::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  z-index:2;
-  border:5px solid #ddc98b;
-  border-radius:50%;
-  box-shadow:inset 0 0 0 1px #fff4cd99;
-  pointer-events:none;
-  opacity:1;
-  transition:opacity .4s ease;
-}
+.themed-profile .profile-frame::before,
+.themed-profile .profile-frame::after { content:none; }
 .themed-profile .profile-frame > .profile-photo {
-  position:absolute;
-  inset:0;
-  z-index:1;
   display:block;
   width:100%;
   height:100%;
@@ -83,111 +64,29 @@
   animation:none;
   transition:none;
 }
-.themed-profile .profile-decor,.themed-profile .profile-decor * { pointer-events:none; }
-.themed-profile .profile-decor {
-  position:absolute;
-  inset:0;
-  z-index:3;
-  width:100%;
-  height:100%;
-  aspect-ratio:1 / 1;
-  border-radius:50%;
-  opacity:1;
-  transition:opacity .4s ease;
-}
-.themed-profile .profile-farmer > img {
-  position:absolute;
-  display:block;
-  left:20%;
-  top:-12px;
-  width:60%;
-  height:auto;
-  aspect-ratio:600 / 220;
-  object-fit:contain;
-  animation:profile-hat-drift 10s ease-in-out -2s infinite alternate;
-}
-.themed-profile .profile-astronaut { opacity:0; }
-.themed-profile .profile-astronaut > img {
-  position:absolute;
-  inset:0;
-  z-index:2;
-  display:block;
-  width:100%;
-  height:100%;
-  aspect-ratio:1 / 1;
-  object-fit:contain;
-}
-.themed-profile .profile-visor-glow {
-  position:absolute;
-  inset:0;
-  z-index:0;
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  background:radial-gradient(circle closest-side,transparent 78%,#4285f41c 90%,#aaa0ff2e 98%,transparent 100%);
-  box-shadow:0 0 24px #4285f430,0 0 48px #8e7aff1a;
-  opacity:.48;
-  animation:profile-visor-breathe 6.5s ease-in-out -1s infinite alternate;
-}
-.themed-profile .profile-visor-reflection {
-  position:absolute;
-  inset:0;
-  z-index:3;
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  opacity:.6;
-}
-.themed-profile .profile-visor-reflection::before {
-  content:'';
-  position:absolute;
-  left:12%;
-  top:11%;
-  width:24%;
-  height:24%;
-  border-top:1px solid #ffffff80;
-  border-left:1px solid #d5e8ff38;
-  border-radius:85% 0 0 0;
-  transform:rotate(-15deg);
-}
+/* Safe during partial updates: obsolete portrait decoration never appears. */
+.themed-profile .profile-decor { display:none!important; }
 .profile-card.themed-profile figcaption {
   margin:0;
   padding:20px 0 0;
   text-align:center;
   color:var(--t);
 }
-[data-theme=dark] .themed-profile .profile-frame { background:#122139; }
-[data-theme=dark] .themed-profile .profile-frame::after { opacity:0; }
-[data-theme=dark] .themed-profile .profile-farmer { opacity:0; }
-[data-theme=dark] .themed-profile .profile-astronaut { opacity:1; }
-
-/* Only decorative pixels move. The image, circle, and overlays keep their boxes. */
-@keyframes profile-hat-drift { from{transform:translateY(0)}to{transform:translateY(-2px)} }
-@keyframes profile-visor-breathe { from{opacity:.35}to{opacity:.72} }
-.themed-profile .profile-farmer > img,.themed-profile .profile-visor-glow { animation-play-state:paused; }
-.js:not([data-theme=dark]) .themed-profile .profile-farmer > img { animation-play-state:running; }
-.js[data-theme=dark] .themed-profile .profile-visor-glow { animation-play-state:running; }
-[data-wallpaper=paused] .themed-profile .profile-farmer > img,[data-wallpaper=paused] .themed-profile .profile-visor-glow,
-.wallpaper-suspended .themed-profile .profile-farmer > img,.wallpaper-suspended .themed-profile .profile-visor-glow,
-.sky-suspended .themed-profile .profile-farmer > img,.sky-suspended .themed-profile .profile-visor-glow { animation-play-state:paused!important; }
-
+[data-theme=dark] .themed-profile .profile-frame {
+  background:#172235;
+  box-shadow:0 8px 30px #00000020;
+}
 @media(max-width:860px) {
   .page-home .hero,.page-about .about-intro { grid-template-columns:minmax(0,1fr); row-gap:40px; }
   .profile-card.themed-profile { justify-self:center; }
 }
 @media(max-width:720px) {
   .page-home .hero,.page-about .about-intro { row-gap:36px; }
-  .themed-profile .profile-visor-glow { animation-duration:8s; }
-}
-@media(prefers-reduced-motion:reduce) {
-  .themed-profile .profile-frame,.themed-profile .profile-frame::after,.themed-profile .profile-decor { transition:none!important; }
-  .themed-profile .profile-farmer > img,.themed-profile .profile-visor-glow { animation:none!important; }
 }
 @media print {
   :root { --profile-size:180px; }
   .page-home .hero,.page-about .about-intro { grid-template-columns:minmax(0,1fr) var(--profile-size); }
   .profile-card.themed-profile { background:transparent!important; border:0!important; box-shadow:none!important; }
-  .themed-profile .profile-decor { display:none; }
-  .themed-profile .profile-frame::after { border:1px solid #ccc; box-shadow:none; }
+  .themed-profile .profile-frame { background:transparent; box-shadow:none; }
   .profile-card.themed-profile figcaption { padding-top:12px; }
 }

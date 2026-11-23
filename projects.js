@@ -10,7 +10,7 @@ window.CATEGORIES=[
 ];
 window.PROJECTS=[
   {
-    id:'metricast', category:'new-projects', featured:true,
+    id:'metricast', category:'new-projects', featured:true, detailsUrl:'projects/metricast.html',
     kind:'Academic project · Restaurant analytics', title:'METRICAST',
     summary:'A restaurant analytics and forecasting project connecting POS data preparation with sales, product and operational insights.',
     image:'assets/projects/metricast-reference.webp',
@@ -35,7 +35,7 @@ window.PROJECTS=[
     contactLink:linkedin
   },
   {
-    id:'jru-library-assist', category:'new-projects', featured:true,
+    id:'jru-library-assist', category:'new-projects', featured:true, detailsUrl:'projects/jru-library-rag.html',
     kind:'Academic project · Applied AI', title:'JRU Library Assist',
     summary:'A library FAQ assistant that finds relevant source passages and produces conversational answers with citations.',
     image:'assets/projects/jru-library-assist.webp',
@@ -71,7 +71,7 @@ window.PROJECTS=[
     link:'https://jru-library-assist.vercel.app/', linkLabel:'Open application', contactLink:linkedin
   },
   {
-    id:'faostat-dashboard', category:'new-projects', featured:true,
+    id:'faostat-dashboard', category:'new-projects', featured:true, detailsUrl:'projects/faostat.html',
     kind:'Academic project · Agricultural analytics', title:'FAOSTAT Dashboard',
     summary:'An interactive view of Asian crop and livestock performance, historical trends, descriptive statistics and rice forecasts.',
     image:'assets/projects/faostat-dashboard.webp',
@@ -95,7 +95,7 @@ window.PROJECTS=[
     link:'https://datastudio.google.com/reporting/c5fa71ea-7072-4c0c-bf98-9d022484a28d', linkLabel:'Open dashboard', contactLink:linkedin
   },
   {
-    id:'asean-dse-2026', category:'competitions', featured:true,
+    id:'asean-dse-2026', category:'competitions', featured:true, detailsUrl:'projects/asean.html',
     kind:'Academic team project · Data storytelling', title:'ASEAN Data Science Explorers 2026',
     summary:'An education-to-employment data story examining Philippine youth labor-market indicators, participation and gender differences.',
     image:'assets/projects/asean-dse-2026.webp',

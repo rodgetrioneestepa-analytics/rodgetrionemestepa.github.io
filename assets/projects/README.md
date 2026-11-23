@@ -8,3 +8,12 @@ These optimized WebP previews document the supplied academic projects. They are 
 - `asean-dse-2026.webp`: converted from the original embedded dashboard image on page 10 of the supplied Heavy Bummers presentation. Its title is Philippine Youth & Education Dashboard. The image was extracted unchanged before WebP optimization.
 
 Source ZIP archives, complete PDFs, private FAQ workbooks, business data, and environment files are not included here. Asset attribution does not establish an unverified implementation framework, database system, forecast accuracy, competition award, or proficiency level.
+
+## Dedicated project galleries
+
+The METRICAST gallery additionally includes two full-aspect-ratio WebP references, mechanically optimized at their original dimensions from the supplied screenshot archive. The original archive is unchanged and remains outside the published assets.
+
+- `metricast/sales-trends.webp`: supplied screenshot `Screenshot 2026-11-22 005959.png` (1919 × 942), showing aggregate sales/channel charts and actual-versus-predicted sales. No customer rows or personal contact records are shown.
+- `metricast/sales-forecast.webp`: supplied screenshot `Screenshot 2026-11-22 010220.png` (1918 × 942), showing forecast controls, selected horizon, and an uncertainty band. Visible interface values remain screenshot references; they are not promoted as independently verified model performance or business outcomes.
+
+The JRU Library Assist details page reuses the existing `library-assist-live-citations.jpg` and `library-assist-live-mobile.jpg` captures at the portfolio root, alongside its existing optimized preview. Each shows the same project's source-supported library-answer interface. The FAOSTAT and ASEAN details pages retain their single supplied curated reference each; no other project's images or duplicated filler screenshots are mixed into their galleries. Full-size links and native-dialog previews preserve each image's aspect ratio.

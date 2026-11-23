@@ -46,7 +46,7 @@ const externalUrl=value=>{try{const u=new URL(value);return ['https:','http:'].i
 const toolsFor=p=>(p.tools||[]).map(t=>typeof t==='string'?{name:t,icon:namedIcons[t]||'code',tone:'blue'}:t);
 const toolIcon=icon=>`<span class="tech-icon" aria-hidden="true">${iconFiles[icon]?`<img src="assets/tools/${iconFiles[icon]}.svg" width="20" height="20" alt="" loading="lazy">`:icon==='groq'?'<b>g</b>':`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${iconPaths[icon]||iconPaths.method}</svg>`}</span>`;
 const chip=(item,icon)=>`<li class="tech-chip" data-tool-tone="${esc(item.tone||'neutral')}">${toolIcon(item.icon||icon)}<span>${esc(item.name)}</span></li>`;
-const techGroup=(heading,items,className,icon)=>!items?.length?'':`<div class="project-tech-group"><h5>${heading}</h5><ul class="${className}">${items.map(item=>chip(item,icon)).join('')}</ul>${items.some(item=>item.role)?`<ul class="project-tool-notes">${items.filter(item=>item.role).map(item=>`<li><strong>${externalUrl(item.link)?`<a href="${esc(externalUrl(item.link))}" target="_blank" rel="noopener noreferrer">${esc(item.name)}</a>`:esc(item.name)}</strong><span>${esc(item.role)}</span></li>`).join('')}</ul>`:''}</div>`;
+const techGroup=(heading,items,className,icon)=>!items?.length?'':`<details class="project-tech-disclosure"><summary><span>${heading}</span><span class="project-tech-count">${items.length}</span></summary><div class="project-tech-content"><ul class="${className}">${items.map(item=>chip(item,icon)).join('')}</ul>${items.some(item=>item.role)?`<ul class="project-tool-notes">${items.filter(item=>item.role).map(item=>`<li><strong>${externalUrl(item.link)?`<a href="${esc(externalUrl(item.link))}" target="_blank" rel="noopener noreferrer">${esc(item.name)}</a>`:esc(item.name)}</strong><span>${esc(item.role)}</span></li>`).join('')}</ul>`:''}</div></details>`;
 const technologyDetails=p=>`<div class="project-detail-section project-technologies"><h4>Tools &amp; Technologies Used</h4>${techGroup('Tools &amp; Platforms',toolsFor(p),'project-tool-chips project-tool-chips-full','code')}${techGroup('Methods &amp; Techniques',p.methods,'project-method-chips','method')}${techGroup('Data Sources',p.dataSources,'project-source-chips','database')}</div>`;
 const projectDetails=p=>{
   const section=(title,text)=>text?`<div class="project-detail-section"><h4>${title}</h4><p>${esc(text)}</p></div>`:'';
@@ -55,12 +55,15 @@ const projectDetails=p=>{
   return `<div class="project-detail-flow">${details}${link||contact?`<div class="project-actions">${link?`<a class="btn small" href="${esc(link)}" target="_blank" rel="noopener noreferrer">${esc(p.linkLabel||'View project')}</a>`:''}${contact?`<a class="project-contact-link" href="${esc(contact)}" target="_blank" rel="noopener noreferrer" aria-label="Learn more about ${esc(p.title)} on LinkedIn">Learn more on LinkedIn</a>`:''}</div>`:''}</div>`;
 };
 const card=(p,full)=>{
-  const tools=toolsFor(p),title=p.details?'Show project details':'Show overview',close=p.details?'Hide project details':'Hide overview';
+  const tools=toolsFor(p);
+  const detailUrl=/^projects\/[a-z0-9-]+\.html$/.test(p.detailsUrl||'')?p.detailsUrl:`projects.html#${encodeURIComponent(p.id)}`;
+  const live=externalUrl(p.link);
   return `<article class="card project-card${p.imageFit==='cover'?' project-preview-fill':''}" id="${esc(p.id)}">
 ${p.image?`<figure class="prev project-real-preview"><a href="${esc(p.image)}" target="_blank" rel="noopener" aria-label="Open reference image for ${esc(p.title)}"><img src="${esc(p.image)}" alt="${esc(p.imageAlt||p.title)}" loading="lazy" decoding="async"></a></figure>`:p.preview?`<figure class="prev">${ART[p.preview]||''}${p.concept?'<span class="badge">Concept illustration</span>':''}</figure>`:''}
 <div class="body"><p class="kind">${esc(p.kind)}</p><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
 <p class="project-tools-label">Tools &amp; Technologies Used</p><ul class="project-tool-chips" aria-label="Prominent tools and platforms">${tools.slice(0,4).map(t=>chip(t,'code')).join('')}${tools.length>4?`<li class="tech-chip tech-more" aria-label="${tools.length-4} more tools in project details">+${tools.length-4} More</li>`:''}</ul>
-${full?`<button class="more" type="button" aria-expanded="false" aria-controls="ov-${esc(p.id)}" data-open-label="${title}" data-close-label="${close}">${title}</button><div class="ov" id="ov-${esc(p.id)}" hidden>${projectDetails(p)}</div>`:`<a class="more" href="projects.html#${esc(p.id)}">Explore the project</a>`}
+<div class="project-card-actions"><a class="more project-detail-link" href="${esc(detailUrl)}" aria-label="View details: ${esc(p.title)}">View Details</a>${live?`<a class="project-live-link" href="${esc(live)}" target="_blank" rel="noopener noreferrer">${esc(p.linkLabel||'Live demo')}</a>`:''}</div>
+${full?`<button class="more project-quick" type="button" aria-expanded="false" aria-controls="ov-${esc(p.id)}" aria-label="Quick overview: ${esc(p.title)}" data-project-title="${esc(p.title)}" data-open-label="Quick overview" data-close-label="Close overview">Quick overview</button><div class="ov" id="ov-${esc(p.id)}" hidden>${projectDetails(p)}</div>`:''}
 </div></article>`;
 };
 
@@ -70,7 +73,7 @@ const feat=$('#featured');
 if(feat)feat.innerHTML=P.filter(p=>p.featured).map(p=>card(p)).join('')||'<p class="muted">Featured projects will appear here.</p>';
 
 /* Expandable overviews */
-const toggle=(btn,open)=>{const o=open??btn.getAttribute('aria-expanded')!=='true';btn.setAttribute('aria-expanded',o);btn.textContent=o?(btn.dataset.closeLabel||'Hide overview'):(btn.dataset.openLabel||'Show overview');document.getElementById(btn.getAttribute('aria-controls')).hidden=!o};
+const toggle=(btn,open)=>{const o=open??btn.getAttribute('aria-expanded')!=='true';btn.setAttribute('aria-expanded',o);btn.textContent=o?(btn.dataset.closeLabel||'Hide overview'):(btn.dataset.openLabel||'Show overview');if(btn.dataset.projectTitle)btn.setAttribute('aria-label',btn.textContent+': '+btn.dataset.projectTitle);document.getElementById(btn.getAttribute('aria-controls')).hidden=!o};
 document.addEventListener('click',e=>{const b=e.target.closest('button.more');if(b)toggle(b)});
 
 /* Projects page: tabs */

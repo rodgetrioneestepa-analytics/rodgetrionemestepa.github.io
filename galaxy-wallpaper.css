@@ -1,0 +1,18 @@
+/* One noninteractive React island lives under the existing nighttime scenery. */
+.galaxy-wallpaper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none !important;
+  opacity: .62;
+  contain: strict;
+}
+.galaxy-wallpaper * { pointer-events: none !important; }
+.galaxy-ready .sky-night > .sky-stars { visibility: hidden; }
+[data-theme=light] .galaxy-wallpaper { display: none; }
+@media (max-width: 720px) { .galaxy-wallpaper { opacity: .5; } }
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-wallpaper { display: none; }
+  .galaxy-ready .sky-night > .sky-stars { visibility: visible; }
+}
+@media print { .galaxy-wallpaper { display: none; } }
